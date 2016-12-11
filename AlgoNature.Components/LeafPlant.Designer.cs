@@ -37,6 +37,7 @@
             this.panelNature.Name = "panelNature";
             this.panelNature.Size = new System.Drawing.Size(491, 455);
             this.panelNature.TabIndex = 0;
+            this.panelNature.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelNature.Paint += new System.Windows.Forms.PaintEventHandler(this.panelPlant_Paint);
             this.panelNature.DoubleClick += new System.EventHandler(this.panelNature_DoubleClick);
             this.panelNature.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LeafPlant_MouseDoubleClick);

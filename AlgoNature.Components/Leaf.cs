@@ -19,7 +19,7 @@ namespace AlgoNature.Components
     public partial class Leaf : DockableUserControl<Leaf>, IResettableGraphicComponentForVisualisationDocking<Leaf>, IGrowableGraphicChild, IToRedrawEventHandlingList //IObservable<bool>
     {
         // IResettableGraphicComponentForVisualisationDocking Implementation
-        public override Leaf ResetGraphicalAppearanceForImmediateDocking()
+        public Leaf ResetGraphicalAppearanceForImmediateDocking()
         {
             secondPaint = true;
 
@@ -63,6 +63,17 @@ namespace AlgoNature.Components
             //this.Refresh();
 
             //throw new NotImplementedException();
+            doRefresh();
+            return this;
+        }
+
+        protected override Leaf Redock()
+        {
+            int xCenter = panelNature.Width / 2;
+            int yCenter = Convert.ToInt32(_oneLengthPixels * Math.Pow(Phi, _divideAngle * (180 - _onePartPossitionDegrees - _beginingAnglePhase + 1) / 180F));
+            _centerPoint = new Point(xCenter, yCenter);
+
+            doRefresh();
 
             return this;
         }

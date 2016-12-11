@@ -9,19 +9,16 @@ using System.Windows.Forms;
 
 namespace AlgoNature.Components
 {
-    public abstract class DockableUserControl<T> : UserControl, IResettableGraphicComponentForVisualisationDocking<T>
+    public abstract class DockableUserControl<T> : UserControl
         where T : UserControl, IResettableGraphicComponentForVisualisationDocking<T>
     {
         public virtual T DockOnSize(Size parentsSize)
         {
             this.Dock = DockStyle.Fill;
             this.Size = parentsSize;
-            return this.ResetGraphicalAppearanceForImmediateDocking();
+            return this.Redock();
         }
 
-        public virtual T ResetGraphicalAppearanceForImmediateDocking()
-        {
-            throw new NotImplementedException();
-        }
+        protected abstract T Redock();
     }
 }

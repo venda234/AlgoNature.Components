@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using System.Windows;
 using System.Windows.Controls;
 using System.Threading;
+using System.Numerics;
 using static AlgoNature.Components.Generals;
 using static AlgoNature.Components.Geometry;
 
@@ -21,8 +22,9 @@ namespace AlgoNature.Components
     public partial class LeafPlant: DockableUserControl<LeafPlant>, IResettableGraphicComponentForVisualisationDocking<LeafPlant>, IGrowableGraphicChild
     {
         // IResettableGraphicComponentForVisualisationDocking Implementation
-        public override LeafPlant ResetGraphicalAppearanceForImmediateDocking()
+        public LeafPlant ResetGraphicalAppearanceForImmediateDocking()
         {
+            foreach (Control c in panelNature.Controls) c.Dispose();
             panelNature.Controls.Clear();
             try { Itself.Dispose(); } catch { }
 
@@ -39,7 +41,14 @@ namespace AlgoNature.Components
             LifeTimer = new System.Windows.Forms.Timer();
             LifeTimer.Interval = 500;
             LifeTimer.Tick += new EventHandler(LifeTimerTickHandler);
-            LifeTimer.Start();
+            //LifeTimer.Start();
+
+            return this;
+        }
+
+        protected override LeafPlant Redock()
+        {
+            CenterPoint = new Point(this.Width / 2, this.Height / 2); // Will serve all leaves
 
             return this;
         }
@@ -79,7 +88,7 @@ namespace AlgoNature.Components
             LifeTimer = new System.Windows.Forms.Timer();
             LifeTimer.Interval = 500;
             LifeTimer.Tick += new EventHandler(LifeTimerTickHandler);
-            LifeTimer.Start();
+            //LifeTimer.Start();
 
 
             
@@ -113,6 +122,10 @@ namespace AlgoNature.Components
             set
             {
                 _centerPoint = value;
+                foreach (Leaf leaf in panelNature.Controls)
+                {
+                    leaf.CenterPointParentAbsoluteLocation = _centerPoint;
+                }
                 panelNature.Refresh();
             }
         }
@@ -141,7 +154,7 @@ namespace AlgoNature.Components
 
         private float _currentFylotaxisAngle;
 
-        private Leaf _leafTemplate;
+        private volatile Leaf _leafTemplate;
         public Leaf LeafTemplate
         {
             get { return _leafTemplate; }

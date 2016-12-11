@@ -1512,6 +1512,12 @@ namespace AlgoNature.Components
             secondPaint = false;
         }
 
+        public new void Refresh()
+        {
+            base.Refresh();
+            doRefresh();
+        }
+
         private void Leaf_Paint(object sender, PaintEventArgs e)
         {
             secondPaint = false;
@@ -1520,9 +1526,6 @@ namespace AlgoNature.Components
                 this.Location = changeLocation;
                 changeLocation = new Point(Int32.MaxValue, Int32.MaxValue);
             }
-
-            Console.WriteLine(sender.GetType().FullName);
-            if (sender.GetType() != typeof(Leaf)) doRefresh();
             
             //panelLeaf_Paint(sender, e);
         }

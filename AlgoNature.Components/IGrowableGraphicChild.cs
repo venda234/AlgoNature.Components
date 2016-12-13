@@ -27,7 +27,7 @@ namespace AlgoNature.Components
         TimeSpan TimeToGrowOneStepAfter { get; set; }
         TimeSpan TimeToAverageDieAfter { get; set; }
         double DeathTimeSpanFromAveragePart { get; set; }
-        Timer LifeTimer { get; set; }
+        System.Windows.Forms.Timer LifeTimer { get; set; }
         void LifeTimerTickHandler(object sender, EventArgs e);
         Point CenterPointParentAbsoluteLocation { get; set; }
         Point Location { get; set; }

@@ -14,6 +14,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Threading;
 using System.Numerics;
+using System.Reflection;
+using System.IO;
 using static AlgoNature.Components.Generals;
 using static AlgoNature.Components.Geometry;
 
@@ -21,6 +23,80 @@ namespace AlgoNature.Components
 {
     public partial class LeafPlant: DockableUserControl<LeafPlant>, IResettableGraphicComponentForVisualisationDocking<LeafPlant>, IGrowableGraphicChild
     {
+        // ITranslatable
+        private bool _translatable = true;
+        private bool _translatableForThsCulture = true;
+        public string TryTranslate(string translateKey)
+        {
+            if (_translatable)
+            {
+                string culture = _translatableForThsCulture ? Thread.CurrentThread.CurrentCulture.Name : Generals.DEFAULT_LOCALE_KEY;
+                if (_translationDictionaries.Count == 0)
+                {
+                    if (_translatableForThsCulture/* && _translationDictionaries == null*/) // trying current culture if not previously restricted
+                    {
+                        _translatable = tryInitializeTranslationDictionary(culture);
+                    }
+                    if (_translationDictionaries.Count == 0) // trying default culture
+                    {
+                        _translatableForThsCulture = false;
+                        culture = Generals.DEFAULT_LOCALE_KEY;
+                        _translatable = tryInitializeTranslationDictionary(culture);
+                    }
+                }
+
+                /*else if (_translationDictionaries[culture] == null)
+                {
+                    if (!tryInitializeTranslationDictionary(culture))
+                    {
+                        _translatable = tryInitializeTranslationDictionary(culture);
+                    }
+                }*/
+                if (_translatable)
+                {
+                    string res = _translationDictionaries[culture][translateKey];
+                    return (res != null) ? res : translateKey;
+                }
+            }
+            return translateKey;
+        }
+        private Dictionary<string, Dictionary<string, string>> _translationDictionaries = new Dictionary<string, Dictionary<string, string>>();
+        private bool tryInitializeTranslationDictionary(string locale)
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+            Type thisType = this.GetType();
+            var resourceName = thisType.Name;
+            if (resourceName.Contains(thisType.Namespace))
+                resourceName.Remove(0, thisType.Namespace.Length + 1);
+            resourceName += ".PropertiesToTranslate." + locale + ".txt";
+
+            try
+            {
+                using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    _translationDictionaries[locale] = new Dictionary<string, string>();
+
+                    string line;
+                    string[] splitLine;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        splitLine = line.Split(new char[2] { '=', '"' }, StringSplitOptions.RemoveEmptyEntries);
+                        if (splitLine.Length == 2)
+                        {
+                            _translationDictionaries[locale].Add(splitLine[0], splitLine[1]);
+                        }
+                        else if (splitLine.Length == 1)
+                        {
+                            _translationDictionaries[locale].Add(splitLine[0], splitLine[0]);
+                        }
+                    }
+                }
+                return true;
+            }
+            catch { return false; }
+        }
+
         // IResettableGraphicComponentForVisualisationDocking Implementation
         public LeafPlant ResetGraphicalAppearanceForImmediateDocking()
         {
@@ -53,7 +129,7 @@ namespace AlgoNature.Components
             return this;
         }
 
-        #region Constructors
+#region Constructors
         public LeafPlant()
         {
             InitializeComponent();
@@ -107,9 +183,9 @@ namespace AlgoNature.Components
         //        throw new NotImplementedException();
         //    }
         //}
-        #endregion
+#endregion
 
-        #region Properties   
+#region Properties   
         private bool _drawToGraphics;
                
         private Point _centerPoint;
@@ -166,7 +242,7 @@ namespace AlgoNature.Components
         }
 
         //private RedrawHandlingList<Leaf> _childrenLeaves;
-        #endregion
+#endregion
 
 
         protected override CreateParams CreateParams // Transparent
@@ -184,6 +260,10 @@ namespace AlgoNature.Components
             panelNature.Refresh();
         }*/
 
+#if DEBUG
+        private bool _writtenProps = false;
+#endif
+        
         private async void panelPlant_Paint(object sender, PaintEventArgs e)
         {
             //Itself = new Bitmap(panelNature.Width, panelNature.Height);
@@ -199,7 +279,33 @@ namespace AlgoNature.Components
             panelNature.ResumeLayout();
             //this.Enabled = true;
             //if (_drawToGraphics) e.Graphics.DrawImageUnscaled(Itself, 0, 0);
+#if DEBUG
+            if (!_writtenProps)
+            {
+                _writtenProps = true;
+                var props = this.GetType().GetProperties();
+                List<PropertyInfo> ignoreProps = new List<PropertyInfo>();
+                ignoreProps.AddRange(typeof(IBitmapGraphicChild).GetProperties());
+                ignoreProps.AddRange(typeof(UserControl).GetProperties());
 
+                try
+                {
+                    StreamWriter swf = new StreamWriter(new FileStream("LeafPlant.PropertiesToTranslate.txt", FileMode.Truncate));
+
+
+                    foreach (PropertyInfo property in props)
+                    {
+                        if (property?.GetMethod?.IsPublic == true)
+                            if ((ignoreProps.Where(new Func<PropertyInfo, bool>((proprt) => property.Name == proprt.Name)).ToArray().Length) == 0)
+                            {
+                                swf.WriteLine(property.Name + "=\"\"");
+                            }
+                    }
+                    swf.Close();
+                }
+                catch { }
+            }
+#endif
             //Redraw.Invoke(this, EventArgs.Empty);
         }
         private Task panelPaint(out Bitmap bitmap)
@@ -219,7 +325,7 @@ namespace AlgoNature.Components
             return Task.CompletedTask;
         }
 
-        #region IGrowableGraphicChild implementation
+#region IGrowableGraphicChild implementation
         private int _alreadyGrownState;
         public int AlreadyGrownState
         {
@@ -490,7 +596,7 @@ namespace AlgoNature.Components
         {
             return Itself;
         }
-        #endregion
+#endregion
 
         private void panelNature_DoubleClick(object sender, EventArgs e)
         {

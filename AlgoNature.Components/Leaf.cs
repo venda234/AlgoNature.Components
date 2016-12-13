@@ -10,14 +10,91 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Numerics;
 using System.Drawing.Imaging;
+using System.Reflection;
+using System.IO;
+using System.Threading;
 using static AlgoNature.Components.Generals;
 using static AlgoNature.Components.Geometry;
 //using System.Timers;
 
 namespace AlgoNature.Components
 {
-    public partial class Leaf : DockableUserControl<Leaf>, IResettableGraphicComponentForVisualisationDocking<Leaf>, IGrowableGraphicChild, IToRedrawEventHandlingList //IObservable<bool>
+    public partial class Leaf : DockableUserControl<Leaf>, IResettableGraphicComponentForVisualisationDocking<Leaf>, IGrowableGraphicChild, IToRedrawEventHandlingList, ITranslatable //IObservable<bool>
     {
+        // ITranslatable
+        private bool _translatable = true;
+        private bool _translatableForThsCulture = true;
+        public string TryTranslate(string translateKey)
+        {
+            if (_translatable)
+            {
+                string culture = _translatableForThsCulture ? Thread.CurrentThread.CurrentCulture.Name : DEFAULT_LOCALE_KEY;
+                if (_translationDictionaries.Count == 0)
+                {
+                    if (_translatableForThsCulture/* && _translationDictionaries == null*/) // trying current culture if not previously restricted
+                    {
+                        _translatable = tryInitializeTranslationDictionary(culture);
+                    }
+                    if (_translationDictionaries.Count == 0) // trying default culture
+                    {
+                        _translatableForThsCulture = false;
+                        culture = DEFAULT_LOCALE_KEY;
+                        _translatable = tryInitializeTranslationDictionary(culture);
+                    }
+                }
+                
+                /*else if (_translationDictionaries[culture] == null)
+                {
+                    if (!tryInitializeTranslationDictionary(culture))
+                    {
+                        _translatable = tryInitializeTranslationDictionary(culture);
+                    }
+                }*/
+                if (_translatable)
+                {
+                    string res = _translationDictionaries[culture][translateKey];
+                    return (res != null) ? res : translateKey;
+                }
+            }
+            return translateKey;
+        }
+        private Dictionary<string, Dictionary<string, string>> _translationDictionaries = new Dictionary<string, Dictionary<string, string>>();
+        private bool tryInitializeTranslationDictionary(string locale)
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+            Type thisType = this.GetType();
+            var resourceName = thisType.Name;
+            if (resourceName.Contains(thisType.Namespace))
+                resourceName.Remove(0, thisType.Namespace.Length + 1);
+            resourceName += ".PropertiesToTranslate." + locale + ".txt";
+
+            try
+            {
+                using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    _translationDictionaries[locale] = new Dictionary<string, string>();
+
+                    string line;
+                    string[] splitLine;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        splitLine = line.Split(new char[2] { '=', '"' }, StringSplitOptions.RemoveEmptyEntries);
+                        if (splitLine.Length == 2)
+                        {
+                            _translationDictionaries[locale].Add(splitLine[0], splitLine[1]);
+                        }
+                        else if (splitLine.Length == 1)
+                        {
+                            _translationDictionaries[locale].Add(splitLine[0], splitLine[0]);
+                        }
+                    }
+                }
+                return true;
+            }
+            catch { return false; }
+        }
+
         // IResettableGraphicComponentForVisualisationDocking Implementation
         public Leaf ResetGraphicalAppearanceForImmediateDocking()
         {
@@ -51,7 +128,7 @@ namespace AlgoNature.Components
             _isDead = false;
             if (LifeTimer.Enabled)
             {
-                LifeTimer = new Timer();
+                LifeTimer = new System.Windows.Forms.Timer();
                 LifeTimer.Interval = 500;
                 LifeTimer.Tick += new EventHandler(LifeTimerTickHandler);
                 LifeTimer.Start();
@@ -130,7 +207,7 @@ namespace AlgoNature.Components
             _timeToGrowOneStepAfter = new TimeSpan(0, 0, 10);
             _timeToAverageDieAfter = new TimeSpan(0, 5, 0);
             _deathTimeSpanFromAveragePart = 0.1;
-            LifeTimer = new Timer();
+            LifeTimer = new System.Windows.Forms.Timer();
             LifeTimer.Interval = 500;
             LifeTimer.Tick += new EventHandler(LifeTimerTickHandler);
             //LifeTimer.Start();
@@ -181,7 +258,7 @@ namespace AlgoNature.Components
             _timeToGrowOneStepAfter = new TimeSpan(0, 0, 10);
             _timeToAverageDieAfter = new TimeSpan(0, 5, 0);
             _deathTimeSpanFromAveragePart = 0.1;
-            LifeTimer = new Timer();
+            LifeTimer = new System.Windows.Forms.Timer();
             LifeTimer.Interval = 500;
             LifeTimer.Tick += new EventHandler(LifeTimerTickHandler);
             if (Growing)
@@ -242,7 +319,7 @@ namespace AlgoNature.Components
             _timeToGrowOneStepAfter = new TimeSpan(0, 0, 10);
             _timeToAverageDieAfter = new TimeSpan(0, 5, 0);
             _deathTimeSpanFromAveragePart = 0.1;
-            LifeTimer = new Timer();
+            LifeTimer = new System.Windows.Forms.Timer();
             LifeTimer.Interval = 500;
             LifeTimer.Tick += new EventHandler(LifeTimerTickHandler);
             //LifeTimer.Start();
@@ -299,7 +376,7 @@ namespace AlgoNature.Components
             _timeToGrowOneStepAfter = new TimeSpan(0, 0, 10);
             _timeToAverageDieAfter = new TimeSpan(0, 5, 0);
             _deathTimeSpanFromAveragePart = 0.1;
-            LifeTimer = new Timer();
+            LifeTimer = new System.Windows.Forms.Timer();
             LifeTimer.Interval = 500;
             LifeTimer.Tick += new EventHandler(LifeTimerTickHandler);
             if (Growing)
@@ -360,7 +437,7 @@ namespace AlgoNature.Components
             _timeToGrowOneStepAfter = new TimeSpan(0, 0, 10);
             _timeToAverageDieAfter = new TimeSpan(0, 5, 0);
             _deathTimeSpanFromAveragePart = 0.1;
-            LifeTimer = new Timer();
+            LifeTimer = new System.Windows.Forms.Timer();
             LifeTimer.Interval = 500;
             LifeTimer.Tick += new EventHandler(LifeTimerTickHandler);
             //LifeTimer.Start();
@@ -418,7 +495,7 @@ namespace AlgoNature.Components
             _timeToGrowOneStepAfter = new TimeSpan(0, 0, 10);
             _timeToAverageDieAfter = new TimeSpan(0, 5, 0);
             _deathTimeSpanFromAveragePart = 0.1;
-            LifeTimer = new Timer();
+            LifeTimer = new System.Windows.Forms.Timer();
             LifeTimer.Interval = 500;
             LifeTimer.Tick += new EventHandler(LifeTimerTickHandler);
             if (Growing)
@@ -480,7 +557,7 @@ namespace AlgoNature.Components
             _timeToGrowOneStepAfter = timeToGrowOneStepAfter;
             _timeToAverageDieAfter = timeToAverageDieAfter;
             _deathTimeSpanFromAveragePart = deathTimeSpanFromAveragePart;
-            LifeTimer = new Timer();
+            LifeTimer = new System.Windows.Forms.Timer();
             LifeTimer.Interval = 500;
             LifeTimer.Tick += new EventHandler(LifeTimerTickHandler);
             LifeTimer.Start();
@@ -538,7 +615,7 @@ namespace AlgoNature.Components
             _timeToGrowOneStepAfter = timeToGrowOneStepAfter;
             _timeToAverageDieAfter = timeToAverageDieAfter;
             _deathTimeSpanFromAveragePart = deathTimeSpanFromAveragePart;
-            LifeTimer = new Timer();
+            LifeTimer = new System.Windows.Forms.Timer();
             LifeTimer.Interval = 500;
             LifeTimer.Tick += new EventHandler(LifeTimerTickHandler);
             LifeTimer.Start();
@@ -597,7 +674,7 @@ namespace AlgoNature.Components
             _timeToGrowOneStepAfter = timeToGrowOneStepAfter;
             _timeToAverageDieAfter = timeToAverageDieAfter;
             _deathTimeSpanFromAveragePart = deathTimeSpanFromAveragePart;
-            LifeTimer = new Timer();
+            LifeTimer = new System.Windows.Forms.Timer();
             LifeTimer.Interval = 500;
             LifeTimer.Tick += new EventHandler(LifeTimerTickHandler);
             LifeTimer.Start();
@@ -657,7 +734,7 @@ namespace AlgoNature.Components
             _timeToGrowOneStepAfter = timeToGrowOneStepAfter;
             _timeToAverageDieAfter = timeToAverageDieAfter;
             _deathTimeSpanFromAveragePart = deathTimeSpanFromAveragePart;
-            LifeTimer = new Timer();
+            LifeTimer = new System.Windows.Forms.Timer();
             LifeTimer.Interval = 500;
             LifeTimer.Tick += new EventHandler(LifeTimerTickHandler);
             LifeTimer.Start();
@@ -716,7 +793,7 @@ namespace AlgoNature.Components
             _timeToGrowOneStepAfter = timeToGrowOneStepAfter;
             _timeToAverageDieAfter = timeToAverageDieAfter;
             _deathTimeSpanFromAveragePart = deathTimeSpanFromAveragePart;
-            LifeTimer = new Timer();
+            LifeTimer = new System.Windows.Forms.Timer();
             LifeTimer.Interval = 500;
             LifeTimer.Tick += new EventHandler(LifeTimerTickHandler);
             LifeTimer.Start();
@@ -778,7 +855,7 @@ namespace AlgoNature.Components
             _timeToGrowOneStepAfter = timeToGrowOneStepAfter;
             _timeToAverageDieAfter = timeToAverageDieAfter;
             _deathTimeSpanFromAveragePart = deathTimeSpanFromAveragePart;
-            LifeTimer = new Timer();
+            LifeTimer = new System.Windows.Forms.Timer();
             LifeTimer.Interval = 500;
             LifeTimer.Tick += new EventHandler(LifeTimerTickHandler);
             LifeTimer.Start();
@@ -860,7 +937,7 @@ namespace AlgoNature.Components
             _timeToGrowOneStepAfter = timeToGrowOneStepAfter;
             _timeToAverageDieAfter = timeToAverageDieAfter;
             _deathTimeSpanFromAveragePart = deathTimeSpanFromAveragePart;
-            LifeTimer = new Timer();
+            LifeTimer = new System.Windows.Forms.Timer();
             LifeTimer.Interval = 500;
             LifeTimer.Tick += new EventHandler(LifeTimerTickHandler);
             if (StartGrowing) LifeTimer.Start();
@@ -925,7 +1002,7 @@ namespace AlgoNature.Components
             _timeToGrowOneStepAfter = new TimeSpan(0, 10, 0);
             _timeToAverageDieAfter = new TimeSpan(0, 10, 0);
             _deathTimeSpanFromAveragePart = deathTimeSpanFromAveragePart;
-            LifeTimer = new Timer();
+            LifeTimer = new System.Windows.Forms.Timer();
             LifeTimer.Interval = 500;
             LifeTimer.Tick += new EventHandler(LifeTimerTickHandler);
             LifeTimer.Start();
@@ -1529,6 +1606,10 @@ namespace AlgoNature.Components
             doRefresh();
         }
 
+#if DEBUG
+        private bool _writtenProps = false;
+#endif
+
         private void Leaf_Paint(object sender, PaintEventArgs e)
         {
             secondPaint = false;
@@ -1537,7 +1618,34 @@ namespace AlgoNature.Components
                 this.Location = changeLocation;
                 changeLocation = new Point(Int32.MaxValue, Int32.MaxValue);
             }
-            
+
+#if DEBUG
+            if (!_writtenProps)
+            {
+                _writtenProps = true;
+                var props = this.GetType().GetProperties();
+                List<PropertyInfo> ignoreProps = new List<PropertyInfo>();
+                ignoreProps.AddRange(typeof(IBitmapGraphicChild).GetProperties());
+                ignoreProps.AddRange(typeof(UserControl).GetProperties());
+
+                try
+                {
+                    StreamWriter sw = new StreamWriter(new FileStream("Leaf.PropertiesToTranslate.txt", FileMode.Truncate));
+
+
+                    foreach (PropertyInfo property in props)
+                    {
+                        if (property?.GetMethod?.IsPublic == true)
+                            if ((ignoreProps.Where(new Func<PropertyInfo, bool>((proprt) => property.Name == proprt.Name)).ToArray().Length) == 0)
+                            {
+                                sw.WriteLine(property.Name + "=\"\"");
+                            }
+                    }
+                    sw.Close();
+                }
+                catch { }
+            }
+#endif
             //panelLeaf_Paint(sender, e);
         }
         private Point changeLocation = new Point(Int32.MaxValue, Int32.MaxValue);
@@ -3006,7 +3114,7 @@ namespace AlgoNature.Components
             }
         }
 
-        public Timer LifeTimer
+        public System.Windows.Forms.Timer LifeTimer
         {
             get;
             set;

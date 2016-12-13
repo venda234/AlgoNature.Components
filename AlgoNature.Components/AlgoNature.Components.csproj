@@ -57,6 +57,7 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="IToRedrawEventHandlingList.cs" />
+    <Compile Include="ITranslatable.cs" />
     <Compile Include="Leaf.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -73,6 +74,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RedrawHandlingList.cs" />
     <Compile Include="IResettableGraphicComponentForVisualisationDocking.cs" />
+    <Compile Include="Translatable.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
@@ -82,6 +84,24 @@
     <EmbeddedResource Include="LeafPlant.resx">
       <DependentUpon>LeafPlant.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Leaf.PropertiesToTranslate.cs-CZ.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Leaf.PropertiesToTranslate.en-GB.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Leaf.PropertiesToTranslate.en-US.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\LeafPlant.PropertiesToTranslate.cs-CZ.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\LeafPlant.PropertiesToTranslate.en-GB.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\LeafPlant.PropertiesToTranslate.en-US.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

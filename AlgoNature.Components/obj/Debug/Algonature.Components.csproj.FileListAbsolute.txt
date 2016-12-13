@@ -22,3 +22,10 @@ C:\Users\Vacla\Documents\Visual Studio 2015\Repos\AlgoNature.Components\Algonatu
 C:\Users\Vacla\Documents\Visual Studio 2015\Repos\AlgoNature.Components\Algonature.Components\obj\Debug\AlgoNature.Components.csproj.GenerateResource.Cache
 C:\Users\Vacla\Documents\Visual Studio 2015\Repos\AlgoNature.Components\Algonature.Components\obj\Debug\Algonature.Components.dll
 C:\Users\Vacla\Documents\Visual Studio 2015\Repos\AlgoNature.Components\Algonature.Components\obj\Debug\Algonature.Components.pdb
+C:\Users\Vacla\Documents\Visual Studio 2015\Repos\AlgoNature.Components\AlgoNature.Components\bin\Debug\cs-CZ\Algonature.Components.resources.dll
+C:\Users\Vacla\Documents\Visual Studio 2015\Repos\AlgoNature.Components\AlgoNature.Components\bin\Debug\en-GB\Algonature.Components.resources.dll
+C:\Users\Vacla\Documents\Visual Studio 2015\Repos\AlgoNature.Components\AlgoNature.Components\bin\Debug\en-US\Algonature.Components.resources.dll
+C:\Users\Vacla\Documents\Visual Studio 2015\Repos\AlgoNature.Components\AlgoNature.Components\obj\Debug\Algonature.Components.g.resources
+C:\Users\Vacla\Documents\Visual Studio 2015\Repos\AlgoNature.Components\AlgoNature.Components\obj\Debug\cs-CZ\Algonature.Components.resources.dll
+C:\Users\Vacla\Documents\Visual Studio 2015\Repos\AlgoNature.Components\AlgoNature.Components\obj\Debug\en-GB\Algonature.Components.resources.dll
+C:\Users\Vacla\Documents\Visual Studio 2015\Repos\AlgoNature.Components\AlgoNature.Components\obj\Debug\en-US\Algonature.Components.resources.dll

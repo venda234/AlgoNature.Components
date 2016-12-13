@@ -10,7 +10,9 @@ using System.Drawing.Drawing2D;
 namespace AlgoNature.Components
 {
     internal static partial class Generals
-    {    
+    {
+        public const string DEFAULT_LOCALE_KEY = "en-US";
+
         public const double Phi = 1.618033988749894848204586834365638117720309179805762862135448622705260462818902449707207204189391137484754088075386891752;
         public const double GoldenAngleRad = 2.3999632297286533222315555066336;
         public const double LNPhi = 0.48121182505960344749775891342437;        

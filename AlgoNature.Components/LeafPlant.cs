@@ -101,10 +101,14 @@ namespace AlgoNature.Components
                         {
                             _translationDictionaries[locale].Add(splitLine[0], splitLine[0]);
                         }*/
-                        if (splitLine[splitLine.Length - 2] == "") // empty
-                            _translationDictionaries[locale].Add(splitLine[splitLine.Length - 4], splitLine[splitLine.Length - 4]);
-                        else
-                            _translationDictionaries[locale].Add(splitLine[splitLine.Length - 4], splitLine[splitLine.Length - 2]);
+                        try // throws an exception if already exists
+                        {
+                            if (splitLine[splitLine.Length - 2] == "") // empty
+                                _translationDictionaries[locale].Add(splitLine[splitLine.Length - 4], splitLine[splitLine.Length - 4]);
+                            else
+                                _translationDictionaries[locale].Add(splitLine[splitLine.Length - 4], splitLine[splitLine.Length - 2]);
+                        }
+                        catch { continue; }
                     }
                 }
                 return true;

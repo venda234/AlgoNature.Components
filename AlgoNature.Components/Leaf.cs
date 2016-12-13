@@ -80,10 +80,14 @@ namespace AlgoNature.Components
                     {
                         if (line.Contains("System.Resources.ResourceReader")) continue;
                         splitLine = line.Split(new char[6] { '=', '"', '\\', '\t', '\u0002', '\u0004' }); //cleaning firstrow mess
-                        if (splitLine[splitLine.Length - 2] == "") // empty
-                            _translationDictionaries[locale].Add(splitLine[splitLine.Length - 4], splitLine[splitLine.Length - 4]);
-                        else
-                            _translationDictionaries[locale].Add(splitLine[splitLine.Length - 4], splitLine[splitLine.Length - 2]);
+                        try // throws an exception if already exists
+                        {
+                            if (splitLine[splitLine.Length - 2] == "") // empty
+                                _translationDictionaries[locale].Add(splitLine[splitLine.Length - 4], splitLine[splitLine.Length - 4]);
+                            else
+                                _translationDictionaries[locale].Add(splitLine[splitLine.Length - 4], splitLine[splitLine.Length - 2]);
+                        }
+                        catch { continue; }
                     }
                 }
                 return true;

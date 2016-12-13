@@ -117,4 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Leaf_PropertiesToTranslate_cs_CZ" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\leaf.propertiestotranslate.cs-cz.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
+  </data>
+  <data name="Leaf_PropertiesToTranslate_en_GB" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\leaf.propertiestotranslate.en-gb.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
+  </data>
+  <data name="Leaf_PropertiesToTranslate_en_US" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\leaf.propertiestotranslate.en-us.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
+  </data>
 </root>

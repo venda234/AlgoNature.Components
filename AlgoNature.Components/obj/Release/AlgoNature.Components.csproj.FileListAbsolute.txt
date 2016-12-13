@@ -25,7 +25,8 @@ C:\Users\Vacla\Documents\Visual Studio 2015\Repos\AlgoNature.Components\Algonatu
 C:\Users\Vacla\Documents\Visual Studio 2015\Repos\AlgoNature.Components\AlgoNature.Components\bin\Release\cs-CZ\Algonature.Components.resources.dll
 C:\Users\Vacla\Documents\Visual Studio 2015\Repos\AlgoNature.Components\AlgoNature.Components\bin\Release\en-GB\Algonature.Components.resources.dll
 C:\Users\Vacla\Documents\Visual Studio 2015\Repos\AlgoNature.Components\AlgoNature.Components\bin\Release\en-US\Algonature.Components.resources.dll
-C:\Users\Vacla\Documents\Visual Studio 2015\Repos\AlgoNature.Components\AlgoNature.Components\obj\Release\Algonature.Components.g.resources
 C:\Users\Vacla\Documents\Visual Studio 2015\Repos\AlgoNature.Components\AlgoNature.Components\obj\Release\cs-CZ\Algonature.Components.resources.dll
 C:\Users\Vacla\Documents\Visual Studio 2015\Repos\AlgoNature.Components\AlgoNature.Components\obj\Release\en-GB\Algonature.Components.resources.dll
 C:\Users\Vacla\Documents\Visual Studio 2015\Repos\AlgoNature.Components\AlgoNature.Components\obj\Release\en-US\Algonature.Components.resources.dll
+C:\Users\Vacla\Documents\Visual Studio 2015\Repos\AlgoNature.Components\AlgoNature.Components\obj\Release\AlgoNature.Components.Leaf.PropertiesToTranslate.resources
+C:\Users\Vacla\Documents\Visual Studio 2015\Repos\AlgoNature.Components\AlgoNature.Components\obj\Release\AlgoNature.Components.LeafPlant.PropertiesToTranslate.resources

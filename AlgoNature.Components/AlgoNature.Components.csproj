@@ -7,8 +7,8 @@
     <ProjectGuid>{750DB509-C831-40DA-9B89-4E6838A277BC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Algonature.Components</RootNamespace>
-    <AssemblyName>Algonature.Components</AssemblyName>
+    <RootNamespace>AlgoNature.Components</RootNamespace>
+    <AssemblyName>AlgoNature.Components</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -64,11 +64,21 @@
     <Compile Include="Leaf.Designer.cs">
       <DependentUpon>Leaf.cs</DependentUpon>
     </Compile>
+    <Compile Include="Leaf.PropertiesToTranslate.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Leaf.PropertiesToTranslate.resx</DependentUpon>
+    </Compile>
     <Compile Include="LeafPlant.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="LeafPlant.Designer.cs">
       <DependentUpon>LeafPlant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LeafPlant.PropertiesToTranslate.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LeafPlant.PropertiesToTranslate.resx</DependentUpon>
     </Compile>
     <Compile Include="Maths.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -78,8 +88,16 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Leaf.PropertiesToTranslate.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Leaf.PropertiesToTranslate.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Leaf.resx">
       <DependentUpon>Leaf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LeafPlant.PropertiesToTranslate.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LeafPlant.PropertiesToTranslate.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="LeafPlant.resx">
       <DependentUpon>LeafPlant.cs</DependentUpon>
@@ -101,7 +119,7 @@
     <EmbeddedResource Include="Resources\LeafPlant.PropertiesToTranslate.en-GB.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\LeafPlant.PropertiesToTranslate.en-US.txt" />
+    <EmbeddedResource Include="Resources\LeafPlant.PropertiesToTranslate.en-US.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -16,6 +16,8 @@ using System.Threading;
 using System.Numerics;
 using System.Reflection;
 using System.IO;
+using System.Globalization;
+using System.Resources;
 using static AlgoNature.Components.Generals;
 using static AlgoNature.Components.Geometry;
 
@@ -30,19 +32,19 @@ namespace AlgoNature.Components
         {
             if (_translatable)
             {
-                string culture = _translatableForThsCulture ? Thread.CurrentThread.CurrentCulture.Name : Generals.DEFAULT_LOCALE_KEY;
+                string culture = _translatableForThsCulture ? Thread.CurrentThread.CurrentCulture.Name : DEFAULT_LOCALE_KEY;
                 if (_translationDictionaries.Count == 0)
                 {
                     if (_translatableForThsCulture/* && _translationDictionaries == null*/) // trying current culture if not previously restricted
                     {
                         _translatable = tryInitializeTranslationDictionary(culture);
                     }
-                    if (_translationDictionaries.Count == 0) // trying default culture
+                    /*if (_translationDictionaries.Count == 0) // trying default culture
                     {
                         _translatableForThsCulture = false;
-                        culture = Generals.DEFAULT_LOCALE_KEY;
+                        culture = DEFAULT_LOCALE_KEY;
                         _translatable = tryInitializeTranslationDictionary(culture);
-                    }
+                    }*/
                 }
 
                 /*else if (_translationDictionaries[culture] == null)
@@ -65,14 +67,13 @@ namespace AlgoNature.Components
         {
             var assembly = Assembly.GetExecutingAssembly();
             Type thisType = this.GetType();
-            var resourceName = thisType.Name;
-            if (resourceName.Contains(thisType.Namespace))
-                resourceName.Remove(0, thisType.Namespace.Length + 1);
-            resourceName += ".PropertiesToTranslate." + locale + ".txt";
 
             try
             {
-                using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+                //ResourceManager resmgr = new ResourceManager(thisType.Namespace + ".resources", Assembly.GetExecutingAssembly());
+                //var strs = new ResourceReader()
+                //var strs = assembly.GetManifestResourceNames();
+                using (Stream stream = assembly.GetManifestResourceStream(thisType.FullName + ".PropertiesToTranslate.resources"))
                 using (StreamReader reader = new StreamReader(stream))
                 {
                     _translationDictionaries[locale] = new Dictionary<string, string>();
@@ -81,15 +82,29 @@ namespace AlgoNature.Components
                     string[] splitLine;
                     while ((line = reader.ReadLine()) != null)
                     {
-                        splitLine = line.Split(new char[2] { '=', '"' }, StringSplitOptions.RemoveEmptyEntries);
-                        if (splitLine.Length == 2)
+                        if (line.Contains("System.Resources.ResourceReader")) continue;
+                        splitLine = line.Split(new char[6] { '=', '"', '\\', '\t', '\u0002', '\u0004' }); //cleaning firstrow mess
+                        /*if (splitLine.Length >= 6) //cleaning firstrow mess
                         {
-                            _translationDictionaries[locale].Add(splitLine[0], splitLine[1]);
+                            var _splln = new string[splitLine.Length == 7 ? 2 : 1];
+                            _splln[0] = splitLine[5];
+                            if (splitLine.Length > 6) _splln[1] = splitLine[6];
+                            splitLine = _splln;
+                        }
+                        if (splitLine.Length <= 2)
+                        {
+                            // cleaning mess
+                            if (splitLine[0].Contains('\u0002')) _translationDictionaries[locale].Add(splitLine[1], splitLine[2]);
+                            else _translationDictionaries[locale].Add(splitLine[0], splitLine[1]);
                         }
                         else if (splitLine.Length == 1)
                         {
                             _translationDictionaries[locale].Add(splitLine[0], splitLine[0]);
-                        }
+                        }*/
+                        if (splitLine[splitLine.Length - 2] == "") // empty
+                            _translationDictionaries[locale].Add(splitLine[splitLine.Length - 4], splitLine[splitLine.Length - 4]);
+                        else
+                            _translationDictionaries[locale].Add(splitLine[splitLine.Length - 4], splitLine[splitLine.Length - 2]);
                     }
                 }
                 return true;
@@ -263,7 +278,7 @@ namespace AlgoNature.Components
 #if DEBUG
         private bool _writtenProps = false;
 #endif
-        
+
         private async void panelPlant_Paint(object sender, PaintEventArgs e)
         {
             //Itself = new Bitmap(panelNature.Width, panelNature.Height);
@@ -305,6 +320,8 @@ namespace AlgoNature.Components
                 }
                 catch { }
             }
+
+            Console.WriteLine(this.TryTranslate("CenterPoint"));
 #endif
             //Redraw.Invoke(this, EventArgs.Empty);
         }

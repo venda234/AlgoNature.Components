@@ -36,4 +36,4 @@ using System.Resources;
 [assembly: AssemblyVersion("1.1.*")]
 [assembly: AssemblyFileVersion("1.1")]
 
-[assembly: NeutralResourcesLanguage("en")]
+[assembly: NeutralResourcesLanguage("en-US")]

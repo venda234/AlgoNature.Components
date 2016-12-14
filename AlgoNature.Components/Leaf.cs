@@ -19,25 +19,42 @@ using static AlgoNature.Components.Geometry;
 
 namespace AlgoNature.Components
 {
-    public partial class Leaf : DockableUserControl<Leaf>, IResettableGraphicComponentForVisualisationDocking<Leaf>, IGrowableGraphicChild, IToRedrawEventHandlingList, ITranslatable //IObservable<bool>
+    public partial class Leaf : DockableUserControl<Leaf>, IResettableGraphicComponentForVisualisationDocking<Leaf>, IGrowableGraphicChild,
+        IToRedrawEventHandlingList, ITranslatable, ICloneable, IPropertiesEditingSuspendable //IObservable<bool>
     {
+        // ICloneable
+        public object Clone()
+        {
+            return Leaf.FromTemplate(this);
+        }
+
+        /*public static Leaf CloneForFastGraphics(bool drawToGraphics)
+        {
+
+        }*/
+
+        /*public new Leaf MemberwiseClone()
+        {
+            return (Leaf)base.MemberwiseClone();
+        }*/
+
         // ITranslatable
         private bool _translatable = true;
-        private bool _translatableForThsCulture = true;
+        private bool _translatableForThisCulture = true;
         public string TryTranslate(string translateKey)
         {
             if (_translatable)
             {
-                string culture = _translatableForThsCulture ? Thread.CurrentThread.CurrentCulture.Name : DEFAULT_LOCALE_KEY;
+                string culture = _translatableForThisCulture ? Thread.CurrentThread.CurrentCulture.Name : DEFAULT_LOCALE_KEY;
                 if (_translationDictionaries.Count == 0)
                 {
-                    if (_translatableForThsCulture/* && _translationDictionaries == null*/) // trying current culture if not previously restricted
+                    if (_translatableForThisCulture/* && _translationDictionaries == null*/) // trying current culture if not previously restricted
                     {
                         _translatable = tryInitializeTranslationDictionary(culture);
                     }
                     /*if (_translationDictionaries.Count == 0) // trying default culture
                     {
-                        _translatableForThsCulture = false;
+                        _translatableForThisCulture = false;
                         culture = DEFAULT_LOCALE_KEY;
                         _translatable = tryInitializeTranslationDictionary(culture);
                     }*/
@@ -869,7 +886,7 @@ namespace AlgoNature.Components
         }
 
         /// <summary>
-        /// As template for other components.
+        /// As a template for other components.
         /// </summary>
         /// <param name="PointFromWhereToGrowBranch"></param>
         /// <param name="BranchLngth"></param>
@@ -950,6 +967,92 @@ namespace AlgoNature.Components
             doItselfRefresh();
         }
 
+        /// <summary>
+        /// As a template for other components with further editing of properties by extending a constructor - 
+        /// then you must use a RefreshAfterPropertiesEditing() method;
+        /// </summary>
+        /// <param name="PointFromWhereToGrowBranch"></param>
+        /// <param name="BranchLngth"></param>
+        /// <param name="DivideAngle"></param>
+        /// <param name="StartPart"></param>
+        /// <param name="OnePartRelativePosition"></param>
+        /// <param name="OneLengthPixels"></param>
+        /// <param name="zeroStateOneLengthPixels"></param>
+        /// <param name="onePartGrowOneLengthPixels"></param>
+        /// <param name="VeinsFractalisation"></param>
+        /// <param name="timeToGrowOneStepAfter"></param>
+        /// <param name="timeToAverageDieAfter"></param>
+        /// <param name="deathTimeSpanFromAveragePart"></param>
+        /// <param name="RotationRad"></param>
+        /// <param name="invertedLeaf"></param>
+        /// <param name="invertedBegining"></param>
+        /// <param name="DrawToGraphics"></param>
+        /// <param name="StartGrowing"></param>
+        /// <param name="suspended"></param>
+        internal Leaf(Point PointFromWhereToGrowBranch, float BranchLngth, int DivideAngle, int StartPart, int OnePartRelativePosition, float OneLengthPixels,
+            float zeroStateOneLengthPixels, float onePartGrowOneLengthPixels, int VeinsFractalisation, TimeSpan timeToGrowOneStepAfter,
+            TimeSpan timeToAverageDieAfter, double deathTimeSpanFromAveragePart, float RotationRad, bool invertedLeaf, bool invertedBegining, bool DrawToGraphics, bool StartGrowing,
+            bool suspended)
+        {
+            InitializeComponent();
+            secondPaint = false;
+            _isBilaterallySymetric = true;
+            _leftDivideAngle = _rightDivideAngle = _divideAngle = DivideAngle;
+            _curveBehindCenterPoint = true;
+            _smoothTop = false;
+            _rotationAngleRad = 0;
+            _oneLengthPixels = OneLengthPixels;
+            _onePartPossitionDegrees = OnePartRelativePosition;
+            _beginingAnglePhase = StartPart;
+            _leftCurveTension = _rightCurveTension = 0.5F;
+            _invertedCurving = false;
+            _invertedCurvingCenterAngle = 7;
+            _invertedCurvingSpan = 1;
+
+            _centerPoint = PointFromWhereToGrowBranch.Add(new Vector2(0, 1).Rotated(_rotationAngleRad) * BranchLngth) - new Size(this.Location);
+            _fill = true;
+            _borderPen = Pens.DarkGreen;
+            _fillBrush = _vitalFillBrush = new SolidBrush(Color.Green);
+            _veinsColor = Color.GreenYellow;
+            _veins = true;
+            _veinsFractalisation = VeinsFractalisation;
+            _veinsBorderReachPart = 0.95F;
+            _centralVeinPixelThickness = 2;
+            //_panelBitmap = new Bitmap(this.Width, this.Height);
+            _userEditedCenterPoint = true;
+            //changeLocation = PointFromWhereToGrowBranch.Substract(_centerPoint);
+            //_locationBasedOnCenterPoint = true;
+            _hasBranch = true;
+            _branchLength = _zeroStateBranchOneLengthPixels = BranchLngth;
+            _centerPointBelongsToBranch = true;
+            _branchPen = new Pen(_borderPen.Color, _centralVeinPixelThickness * 2);
+            _rotationAngleRad = RotationRad;
+            _invertedLeaf = invertedLeaf;
+            _invertedBegining = invertedBegining;
+
+            //IGrowable
+            _zeroStateOneLengthPixels = zeroStateOneLengthPixels;
+            _onePartGrowOneLengthPixels = onePartGrowOneLengthPixels;
+            _alreadyGrownState = 0;
+            _currentTimeAfterLastGrowth = new TimeSpan(0);
+            _isDead = false;
+            _timeToGrowOneStepAfter = timeToGrowOneStepAfter;
+            _timeToAverageDieAfter = timeToAverageDieAfter;
+            _deathTimeSpanFromAveragePart = deathTimeSpanFromAveragePart;
+            LifeTimer = new System.Windows.Forms.Timer();
+            LifeTimer.Interval = 500;
+            LifeTimer.Tick += new EventHandler(LifeTimerTickHandler);
+            if (StartGrowing) LifeTimer.Start();
+            _drawToGraphics = DrawToGraphics;
+            Redraw += delegRdrw;
+            itselfRefresh = true;
+            //this.Refresh();
+            tempSize = this.Size;
+
+            _propertiesEditingMode = suspended;
+            if (!suspended) doItselfRefresh();
+        }
+
         internal Leaf(LineSegment rootLineSegment, float BranchLngthPixels, int DivideAngle, int StartPart, int OnePartRelativePosition,
             float onePartGrowOneLengthPixels, int VeinsFractalisation,
             double deathTimeSpanFromAveragePart, float RotationRad, bool invertedLeaf, bool invertedBegining, bool DrawToGraphics)
@@ -1018,11 +1121,35 @@ namespace AlgoNature.Components
         }
         #endregion
 
+        public static Leaf FromTemplate(Leaf template)
+        {
+            Leaf res = (Leaf)template.MemberwiseClone();
+
+            res._itself = (Bitmap)template._itself.Clone();
+            //res.doRefresh();
+            res.LifeTimer = new System.Windows.Forms.Timer();
+            res.LifeTimer.Interval = template.LifeTimer.Interval;
+            res.LifeTimer.Tick += new EventHandler(res.LifeTimerTickHandler);
+            if (template.LifeTimer.Enabled) res.LifeTimer.Start();
+
+            return res;
+        }
+        
+
         #region Properties
         //private bool _locationBasedOnCenterPoint;
         //private Bitmap _panelBitmap;
 
-        private bool _drawToGraphics;
+        internal bool _drawToGraphics;
+        public bool DrawToGraphics
+        {
+            get { return _drawToGraphics; }
+            set
+            {
+                _drawToGraphics = value;
+                doRefresh();
+            }
+        }
 
         public Point AbsoluteCenterPointLocation
         {
@@ -1623,22 +1750,22 @@ namespace AlgoNature.Components
             if (!_writtenProps)
             {
                 _writtenProps = true;
-                var props = this.GetType().GetProperties();
-                List<PropertyInfo> ignoreProps = new List<PropertyInfo>();
-                ignoreProps.AddRange(typeof(IBitmapGraphicChild).GetProperties());
-                ignoreProps.AddRange(typeof(UserControl).GetProperties());
+                var fields = this.GetType().GetRuntimeFields();
+                //List<FieldInfo> ignoreProps = new List<FieldInfo>();
+                //ignoreProps.AddRange(typeof(UserControl).GetFields());
 
                 try
                 {
-                    StreamWriter sw = new StreamWriter(new FileStream("Leaf.PropertiesToTranslate.txt", FileMode.Truncate));
+                    StreamWriter sw = new StreamWriter(new FileStream("Leaf.Fields.txt", FileMode.Create));
 
 
-                    foreach (PropertyInfo property in props)
+                    foreach (FieldInfo field in fields)
                     {
-                        if (property?.GetMethod?.IsPublic == true)
-                            if ((ignoreProps.Where(new Func<PropertyInfo, bool>((proprt) => property.Name == proprt.Name)).ToArray().Length) == 0)
+                        //if (property?.GetMethod?.IsPublic == true)
+                            //if ((ignoreProps.Where(new Func<FieldInfo, bool>((fld) => field.Name == fld.Name)).ToArray().Length) == 0)
+                            if (field.Name[0] == '_')
                             {
-                                sw.WriteLine(property.Name + "=\"\"");
+                                sw.WriteLine(field.Name + " = template." + field.Name + ",");
                             }
                     }
                     sw.Close();
@@ -1650,6 +1777,7 @@ namespace AlgoNature.Components
         }
         private Point changeLocation = new Point(Int32.MaxValue, Int32.MaxValue);
 
+        // IPropertiesEditingSuspendable
         private bool _propertiesEditingMode = false;
         public bool PropertiesEditingMode
         {
@@ -1657,10 +1785,16 @@ namespace AlgoNature.Components
             set
             {
                 _propertiesEditingMode = value;
-                if (value) doRefresh();
+                if (!value)
+                {
+                    if (_itself == null) doItselfRefresh(); // In case that it was generated by CloneForFastGraphics()
+                    else doRefresh();
+                }
             }
         }
-        
+        public void SuspendForPropertiesEditing() { PropertiesEditingMode = true; }
+        public void RefreshAfterPropertiesEditing() { PropertiesEditingMode = false; }
+
 
         private bool secondPaint;
         private void doRefresh()
@@ -3166,6 +3300,7 @@ namespace AlgoNature.Components
         Size tempSize;
         Point tempLocation;
         //Bitmap _tempBitmapWhileRedrawing;
+        //private bool itselfJustItselfRefreshed = false;
         private void doItselfRefresh()
         {
             if (tempLocation != null) this.Location = tempLocation;
@@ -3185,8 +3320,8 @@ namespace AlgoNature.Components
             this.Size = panelNature.Size = tempSize;
             this.Location = tempLocation;
 
-            
-            
+            //itselfJustItselfRefreshed = true;
+
             _itself = tempBitmap;
         }
 

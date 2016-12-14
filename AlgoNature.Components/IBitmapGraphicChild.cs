@@ -11,5 +11,6 @@ namespace AlgoNature.Components
     {
         Bitmap Itself { get; }
         Bitmap GetItselfBitmap();
+        bool DrawToGraphics { get; set; }
     }
 }

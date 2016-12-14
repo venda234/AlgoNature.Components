@@ -1734,7 +1734,7 @@ namespace AlgoNature.Components
         }
 
 #if DEBUG
-        private bool _writtenProps = false;
+        //private bool _writtenProps = false;
 #endif
 
         private void Leaf_Paint(object sender, PaintEventArgs e)
@@ -1747,31 +1747,31 @@ namespace AlgoNature.Components
             }
 
 #if DEBUG
-            if (!_writtenProps)
-            {
-                _writtenProps = true;
-                var fields = this.GetType().GetRuntimeFields();
-                //List<FieldInfo> ignoreProps = new List<FieldInfo>();
-                //ignoreProps.AddRange(typeof(UserControl).GetFields());
+            //if (!_writtenProps)
+            //{
+            //    _writtenProps = true;
+            //    var fields = this.GetType().GetRuntimeFields();
+            //    //List<FieldInfo> ignoreProps = new List<FieldInfo>();
+            //    //ignoreProps.AddRange(typeof(UserControl).GetFields());
 
-                try
-                {
-                    StreamWriter sw = new StreamWriter(new FileStream("Leaf.Fields.txt", FileMode.Create));
+            //    try
+            //    {
+            //        StreamWriter sw = new StreamWriter(new FileStream("Leaf.Fields.txt", FileMode.Create));
 
 
-                    foreach (FieldInfo field in fields)
-                    {
-                        //if (property?.GetMethod?.IsPublic == true)
-                            //if ((ignoreProps.Where(new Func<FieldInfo, bool>((fld) => field.Name == fld.Name)).ToArray().Length) == 0)
-                            if (field.Name[0] == '_')
-                            {
-                                sw.WriteLine(field.Name + " = template." + field.Name + ",");
-                            }
-                    }
-                    sw.Close();
-                }
-                catch { }
-            }
+            //        foreach (FieldInfo field in fields)
+            //        {
+            //            //if (property?.GetMethod?.IsPublic == true)
+            //                //if ((ignoreProps.Where(new Func<FieldInfo, bool>((fld) => field.Name == fld.Name)).ToArray().Length) == 0)
+            //                if (field.Name[0] == '_')
+            //                {
+            //                    sw.WriteLine(field.Name + " = template." + field.Name + ",");
+            //                }
+            //        }
+            //        sw.Close();
+            //    }
+            //    catch { }
+            //}
 #endif
             //panelLeaf_Paint(sender, e);
         }

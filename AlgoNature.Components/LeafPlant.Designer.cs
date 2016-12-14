@@ -30,6 +30,7 @@
         {
             this.panelNature = new System.Windows.Forms.Panel();
             this.SuspendLayout();
+            //this.Dock = System.Windows.Forms.DockStyle.Fill;
             // 
             // panelNature
             // 

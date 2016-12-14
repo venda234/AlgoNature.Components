@@ -143,7 +143,15 @@ namespace AlgoNature.Components
 
         protected override LeafPlant Redock()
         {
-            CenterPoint = new Point(this.Width / 2, this.Height / 2); // Will serve all leaves
+            this.Dock = System.Windows.Forms.DockStyle.Fill;
+            try
+            {
+                CenterPoint = new Point(Parent.Width / 2, Parent.Height / 2); // Will serve all leaves
+            }
+            catch
+            {
+                CenterPoint = new Point(this.Width / 2, this.Height / 2);
+            }
 
             return this;
         }
@@ -152,8 +160,21 @@ namespace AlgoNature.Components
         public LeafPlant()
         {
             InitializeComponent();
+            
             //this.Size = new Size(900, 900);
-            _centerPoint = new Point(this.Width / 2, this.Height / 2);
+            this.Resize +=
+                (sender, e) =>
+                {
+                    CenterPoint = new Point(this.Width / 2, this.Height / 2);
+                };
+            try
+            {
+                _centerPoint = new Point(Parent.Width / 2, Parent.Height / 2);
+            }
+            catch
+            {
+                _centerPoint = new Point(this.Width / 2, this.Height / 2);
+            }
             _oneLengthPixels = 0.2F;
             _drawToGraphics = true;
             //_childrenLeaves = new RedrawHandlingList<Leaf>();
@@ -228,9 +249,11 @@ namespace AlgoNature.Components
             set
             {
                 _centerPoint = value;
+                _leafTemplate.CenterPoint = _centerPoint;
                 foreach (Leaf leaf in panelNature.Controls)
                 {
-                    leaf.CenterPointParentAbsoluteLocation = _centerPoint;
+                    //leaf.CenterPointParentAbsoluteLocation = _centerPoint;
+                    leaf.CenterPoint = _centerPoint;
                 }
                 panelNature.Refresh();
             }
@@ -291,7 +314,7 @@ namespace AlgoNature.Components
         }*/
 
 #if DEBUG
-        private bool _writtenProps = false;
+        //private bool _writtenProps = false;
 #endif
 
         
@@ -312,33 +335,33 @@ namespace AlgoNature.Components
             //this.Enabled = true;
             //if (_drawToGraphics) e.Graphics.DrawImageUnscaled(Itself, 0, 0);
 #if DEBUG
-            if (!_writtenProps)
-            {
-                _writtenProps = true;
-                var props = this.GetType().GetProperties();
-                List<PropertyInfo> ignoreProps = new List<PropertyInfo>();
-                ignoreProps.AddRange(typeof(IBitmapGraphicChild).GetProperties());
-                ignoreProps.AddRange(typeof(UserControl).GetProperties());
+            //if (!_writtenProps)
+            //{
+            //    _writtenProps = true;
+            //    var props = this.GetType().GetProperties();
+            //    List<PropertyInfo> ignoreProps = new List<PropertyInfo>();
+            //    ignoreProps.AddRange(typeof(IBitmapGraphicChild).GetProperties());
+            //    ignoreProps.AddRange(typeof(UserControl).GetProperties());
 
-                try
-                {
-                    StreamWriter swf = new StreamWriter(new FileStream("LeafPlant.PropertiesToTranslate.txt", FileMode.Truncate));
+            //    try
+            //    {
+            //        StreamWriter swf = new StreamWriter(new FileStream("LeafPlant.PropertiesToTranslate.txt", FileMode.Truncate));
 
 
-                    foreach (PropertyInfo property in props)
-                    {
-                        if (property?.GetMethod?.IsPublic == true)
-                            if ((ignoreProps.Where(new Func<PropertyInfo, bool>((proprt) => property.Name == proprt.Name)).ToArray().Length) == 0)
-                            {
-                                swf.WriteLine(property.Name + "=\"\"");
-                            }
-                    }
-                    swf.Close();
-                }
-                catch { }
-            }
+            //        foreach (PropertyInfo property in props)
+            //        {
+            //            if (property?.GetMethod?.IsPublic == true)
+            //                if ((ignoreProps.Where(new Func<PropertyInfo, bool>((proprt) => property.Name == proprt.Name)).ToArray().Length) == 0)
+            //                {
+            //                    swf.WriteLine(property.Name + "=\"\"");
+            //                }
+            //        }
+            //        swf.Close();
+            //    }
+            //    catch { }
+            //}
 
-            Console.WriteLine(this.TryTranslate("CenterPoint"));
+            //Console.WriteLine(this.TryTranslate("CenterPoint"));
 #endif
             //Redraw.Invoke(this, EventArgs.Empty);
         }
@@ -406,11 +429,11 @@ namespace AlgoNature.Components
                 {
                     _currentTimeAfterLastGrowth = value - TimeToGrowOneStepAfter;
                     GrowOneStep();
-                    Thread.Sleep(1000);
+                    /*Thread.Sleep(1000);
                     using (var g = panelNature.CreateGraphics())
                     {
                         g.Dispose();
-                    }
+                    }*/
                     this.Invalidate();
                 }
             }

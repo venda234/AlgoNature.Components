@@ -23,7 +23,7 @@ using static AlgoNature.Components.Geometry;
 
 namespace AlgoNature.Components
 {
-    public partial class LeafPlant: DockableUserControl<LeafPlant>, IResettableGraphicComponentForVisualisationDocking<LeafPlant>, IGrowableGraphicChild
+    public partial class LeafPlant: DockableUserControl<LeafPlant>, IResettableGraphicComponentForVisualisationDocking<LeafPlant>, IGrowableGraphicChild, ITranslatable
     {
         // ITranslatable
         private bool _translatable = true;

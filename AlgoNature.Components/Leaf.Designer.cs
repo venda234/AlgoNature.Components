@@ -39,7 +39,7 @@
             this.panelNature.Size = new System.Drawing.Size(272, 246);
             this.panelNature.TabIndex = 0;
             this.panelNature.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelNature.Paint += new System.Windows.Forms.PaintEventHandler(this.panelLeaf_Paint);
+            this.panelNature.Paint += new System.Windows.Forms.PaintEventHandler(this.panelNature_Paint);
             // 
             // Leaf
             // 

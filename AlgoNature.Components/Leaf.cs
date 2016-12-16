@@ -1817,6 +1817,11 @@ namespace AlgoNature.Components
         public void RefreshAfterPropertiesEditing() { PropertiesEditingMode = false; }
 
 
+        private void drawCurrentItself()
+        {
+            panelNature.CreateGraphics().DrawImage(GetItselfBitmap(), 0, 0);
+        }
+
         private bool secondPaint;
         private void doRefresh()
         {
@@ -1830,7 +1835,7 @@ namespace AlgoNature.Components
         }
 
         bool validPaint = true; // Because of repeated random paint event
-        private async void panelLeaf_Paint(object sender, PaintEventArgs e)
+        private async void panelNature_Paint(object sender, PaintEventArgs e)
         {
             if (validPaint) await doPanelPaint(e);
             validPaint = false;
@@ -3043,6 +3048,8 @@ namespace AlgoNature.Components
             set
             {
                 this.BackColor = value;
+                //Thread.Sleep(100);
+                //drawCurrentItself();
                 doRefresh();
             }
         }

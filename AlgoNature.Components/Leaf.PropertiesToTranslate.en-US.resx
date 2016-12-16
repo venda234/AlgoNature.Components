@@ -130,7 +130,7 @@
     <value>Angle phase of spiral's begining (sector)</value>
   </data>
   <data name="BorderColor" xml:space="preserve">
-    <value>Edge colour</value>
+    <value>Edge color</value>
   </data>
   <data name="BorderPen" xml:space="preserve">
     <value>Edge pen</value>
@@ -160,13 +160,13 @@
     <value>Current fill brush</value>
   </data>
   <data name="CurrentFillColor" xml:space="preserve">
-    <value>Current fill colour</value>
+    <value>Current fill color</value>
   </data>
   <data name="CurrentTimeAfterLastGrowth" xml:space="preserve">
     <value>Current time after last growth</value>
   </data>
   <data name="CurveBehindCenterPoint" xml:space="preserve">
-    <value>Curve behind centre point</value>
+    <value>Curve behind center point</value>
   </data>
   <data name="DeathTimeSpanFromAveragePart" xml:space="preserve">
     <value>Partial average deviation from the length of life</value>
@@ -199,7 +199,7 @@
     <value>Inverted curving</value>
   </data>
   <data name="InvertedCurvingCenterAngle" xml:space="preserve">
-    <value>Angle of inverted curving centre</value>
+    <value>Angle of inverted curving center</value>
   </data>
   <data name="InvertedCurvingSpan" xml:space="preserve">
     <value>Inverted curving span angle</value>
@@ -268,7 +268,7 @@
     <value>Veins' border reach part</value>
   </data>
   <data name="VeinsColor" xml:space="preserve">
-    <value>Veins' colour</value>
+    <value>Veins' color</value>
   </data>
   <data name="VeinsFractalisation" xml:space="preserve">
     <value>Veins' fractalisation</value>
@@ -277,7 +277,7 @@
     <value>Vital fill brush</value>
   </data>
   <data name="VitalFillColor" xml:space="preserve">
-    <value>Vital fill colour</value>
+    <value>Vital fill color</value>
   </data>
   <data name="ZeroStateBranchOneLengthPixels" xml:space="preserve">
     <value>Unit length of branch's zero phase of the growth in pixels</value>

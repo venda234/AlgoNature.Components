@@ -117,172 +117,62 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AbsoluteCenterPointLocation" xml:space="preserve">
-    <value>Absolute placement of central point</value>
-  </data>
-  <data name="AccurateLogarithmicSpiral" xml:space="preserve">
-    <value>Accurate logarithmic spiral</value>
-  </data>
   <data name="AlreadyGrownState" xml:space="preserve">
-    <value>Phase of growth</value>
-  </data>
-  <data name="BeginingAnglePhase" xml:space="preserve">
-    <value>Angle phase of spiral's begining (sector)</value>
-  </data>
-  <data name="BorderColor" xml:space="preserve">
-    <value>Edge colour</value>
-  </data>
-  <data name="BorderPen" xml:space="preserve">
-    <value>Edge pen</value>
-  </data>
-  <data name="BranchGrowthType" xml:space="preserve">
-    <value>Branch growth type</value>
-  </data>
-  <data name="BranchLength" xml:space="preserve">
-    <value>Branch length</value>
-  </data>
-  <data name="BranchPen" xml:space="preserve">
-    <value>Branch pen</value>
+    <value>Fáze růstu</value>
   </data>
   <data name="CenterPoint" xml:space="preserve">
-    <value>Central point</value>
+    <value>Středový bod</value>
   </data>
   <data name="CenterPointParentAbsoluteLocation" xml:space="preserve">
-    <value>Absolute placement of central point in parent</value>
-  </data>
-  <data name="CentralVeinPixelThickness" xml:space="preserve">
-    <value>Central vein thickness in pixels</value>
-  </data>
-  <data name="ContinueAfterInvertedCurving" xml:space="preserve">
-    <value>Continue straight after inverted curving</value>
-  </data>
-  <data name="CurrentFillBrush" xml:space="preserve">
-    <value>Current fill brush</value>
-  </data>
-  <data name="CurrentFillColor" xml:space="preserve">
-    <value>Current fill colour</value>
+    <value>Absolutní umístění středového bodu v rodiči</value>
   </data>
   <data name="CurrentTimeAfterLastGrowth" xml:space="preserve">
-    <value>Current time after last growth</value>
-  </data>
-  <data name="CurveBehindCenterPoint" xml:space="preserve">
-    <value>Curve behind centre point</value>
+    <value>Čas od posledního přírůstku</value>
   </data>
   <data name="DeathTimeSpanFromAveragePart" xml:space="preserve">
-    <value>Partial average deviation from the length of life</value>
+    <value>Částečná průměrná odchylka od délky života</value>
   </data>
-  <data name="DivideAngle" xml:space="preserve">
-    <value>Angles division (n parameter)</value>
-  </data>
-  <data name="Fill" xml:space="preserve">
-    <value>Fil</value>
-  </data>
-  <data name="GrowFrom_CenterPoint" xml:space="preserve">
-    <value>Grow from leaf's central point</value>
-  </data>
-  <data name="HasBranch" xml:space="preserve">
-    <value>Has branch</value>
-  </data>
-  <data name="IdealArea" xml:space="preserve">
-    <value>Ideal area (in square pixels)</value>
-  </data>
-  <data name="IdealTangentAngleLeft" xml:space="preserve">
-    <value>Ideal left tangent angle</value>
-  </data>
-  <data name="IdealTangentAngleRight" xml:space="preserve">
-    <value>Ideal right tangent angle</value>
-  </data>
-  <data name="InvertedBegining" xml:space="preserve">
-    <value>Inverted begining</value>
-  </data>
-  <data name="InvertedCurving" xml:space="preserve">
-    <value>Inverted curving</value>
-  </data>
-  <data name="InvertedCurvingCenterAngle" xml:space="preserve">
-    <value>Angle of inverted curving centre</value>
-  </data>
-  <data name="InvertedCurvingSpan" xml:space="preserve">
-    <value>Inverted curving span angle</value>
-  </data>
-  <data name="InvertedLeaf" xml:space="preserve">
-    <value>Inverted leaf</value>
-  </data>
-  <data name="IsBilaterallySymetric" xml:space="preserve">
-    <value>Bilaterally symetric</value>
+  <data name="FylotaxisAngle" xml:space="preserve">
+    <value>Fylotaktický úhel</value>
   </data>
   <data name="IsDead" xml:space="preserve">
-    <value>Dead</value>
+    <value>Mrtev</value>
   </data>
-  <data name="LeafGrowthType" xml:space="preserve">
-    <value>Leaf's growth type</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="LeafPlant_PropertiesToTranslate_cs_CZ" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\leafplant.propertiestotranslate.cs-cz.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
   </data>
-  <data name="LeftCurveTension" xml:space="preserve">
-    <value>Left curve tension</value>
+  <data name="LeafPlant_PropertiesToTranslate_en_GB" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\leafplant.propertiestotranslate.en-gb.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
   </data>
-  <data name="LeftDivideAngle" xml:space="preserve">
-    <value>Angles division (n parameter) of left side</value>
+  <data name="LeafPlant_PropertiesToTranslate_en_US" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\leafplant.propertiestotranslate.en-us.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
+  </data>
+  <data name="LeafTemplate" xml:space="preserve">
+    <value>Vzor listu</value>
   </data>
   <data name="LifeTimer" xml:space="preserve">
-    <value>Life timer</value>
+    <value>Časovač života</value>
   </data>
   <data name="Location" xml:space="preserve">
-    <value>Location</value>
+    <value>Umístění</value>
   </data>
   <data name="NameTranslated" xml:space="preserve">
-    <value>Leaf</value>
+    <value>Listnatá rostlina při pohledu svrchu</value>
   </data>
   <data name="OneLengthPixels" xml:space="preserve">
-    <value>Unit length in pixels</value>
+    <value>Jednotková délka v pixelech</value>
   </data>
   <data name="OnePartGrowOneLengthPixels" xml:space="preserve">
-    <value>Unit length increment after one step growth in pixels</value>
-  </data>
-  <data name="OnePartPossitinon" xml:space="preserve">
-    <value>Angle phase of unit length of spiral's radius</value>
-  </data>
-  <data name="PropertiesEditingMode" xml:space="preserve">
-    <value>Properties editing mode (cancels redrawing)</value>
-  </data>
-  <data name="RightCurveTension" xml:space="preserve">
-    <value>Right curve tension</value>
-  </data>
-  <data name="RightDivideAngle" xml:space="preserve">
-    <value>Angles division (n parameter) of right side</value>
-  </data>
-  <data name="RotationAngleRad" xml:space="preserve">
-    <value>Leaf's rotation angle towards vertical vector (0;1) in radians</value>
-  </data>
-  <data name="SmoothTop" xml:space="preserve">
-    <value>Smooth top</value>
+    <value>Přírůstek jednotkové délky po vzrůstu o 1 krok v pixelech</value>
   </data>
   <data name="TimeToAverageDieAfter" xml:space="preserve">
-    <value>Average length of life</value>
+    <value>Průměrná délka života</value>
   </data>
   <data name="TimeToGrowOneStepAfter" xml:space="preserve">
-    <value>One step growth time</value>
-  </data>
-  <data name="Veins" xml:space="preserve">
-    <value>Veins</value>
-  </data>
-  <data name="VeinsBorderReachPart" xml:space="preserve">
-    <value>Veins' border reach part</value>
-  </data>
-  <data name="VeinsColor" xml:space="preserve">
-    <value>Veins' colour</value>
-  </data>
-  <data name="VeinsFractalisation" xml:space="preserve">
-    <value>Veins' fractalisation</value>
-  </data>
-  <data name="VitalFillBrush" xml:space="preserve">
-    <value>Vital fill brush</value>
-  </data>
-  <data name="VitalFillColor" xml:space="preserve">
-    <value>Vital fill colour</value>
-  </data>
-  <data name="ZeroStateBranchOneLengthPixels" xml:space="preserve">
-    <value>Unit length of branch's zero phase of the growth in pixels</value>
+    <value>Čas vzrůstu o 1 krok</value>
   </data>
   <data name="ZeroStateOneLengthPixels" xml:space="preserve">
-    <value>Unit length of zero phase of the growth in pixels</value>
+    <value>Jednotková délka nulové fáze vzrůstu v pixelech</value>
   </data>
 </root>

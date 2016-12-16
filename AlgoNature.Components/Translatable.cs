@@ -11,9 +11,23 @@ namespace AlgoNature.Components
     public abstract class Translatable : ITranslatable
     {
         // ITranslatable
+        public string TranslatedItselfName
+        {
+            get
+            {
+                return NameTranslated;
+            }
+        }
+        public static string NameTranslated
+        {
+            get
+            {//TODO
+                throw new NotImplementedException();
+            }
+        }
         private bool _translatable = true;
         private bool _translatableForThisCulture = true;
-        public string TryTranslate(string translateKey)
+        public virtual string TryTranslate(string translateKey)
         {
             if (_translatable)
             {

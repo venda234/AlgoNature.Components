@@ -65,6 +65,21 @@
     <Compile Include="Leaf.Designer.cs">
       <DependentUpon>Leaf.cs</DependentUpon>
     </Compile>
+    <Compile Include="Leaf.PropertiesToTranslate.en-US.Designer.cs">
+      <DependentUpon>Leaf.PropertiesToTranslate.en-US.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Leaf.PropertiesToTranslate.en-GB.Designer.cs">
+      <DependentUpon>Leaf.PropertiesToTranslate.en-GB.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Leaf.PropertiesToTranslate.cs-CZ.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Leaf.PropertiesToTranslate.cs-CZ.resx</DependentUpon>
+    </Compile>
     <Compile Include="Leaf.PropertiesToTranslate.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -75,6 +90,21 @@
     </Compile>
     <Compile Include="LeafPlant.Designer.cs">
       <DependentUpon>LeafPlant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LeafPlant.PropertiesToTranslate.en-US.Designer.cs">
+      <DependentUpon>LeafPlant.PropertiesToTranslate.en-US.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="LeafPlant.PropertiesToTranslate.en-GB.Designer.cs">
+      <DependentUpon>LeafPlant.PropertiesToTranslate.en-GB.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="LeafPlant.PropertiesToTranslate.cs-CZ.Designer.cs">
+      <DependentUpon>LeafPlant.PropertiesToTranslate.cs-CZ.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="LeafPlant.PropertiesToTranslate.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -89,12 +119,36 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Leaf.PropertiesToTranslate.en-US.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Leaf.PropertiesToTranslate.en-US.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Leaf.PropertiesToTranslate.en-GB.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Leaf.PropertiesToTranslate.en-GB.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Leaf.PropertiesToTranslate.cs-CZ.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Leaf.PropertiesToTranslate.cs-CZ.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Leaf.PropertiesToTranslate.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Leaf.PropertiesToTranslate.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Leaf.resx">
       <DependentUpon>Leaf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LeafPlant.PropertiesToTranslate.en-US.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LeafPlant.PropertiesToTranslate.en-US.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LeafPlant.PropertiesToTranslate.en-GB.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LeafPlant.PropertiesToTranslate.en-GB.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LeafPlant.PropertiesToTranslate.cs-CZ.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LeafPlant.PropertiesToTranslate.cs-CZ.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="LeafPlant.PropertiesToTranslate.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -105,22 +159,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Leaf.PropertiesToTranslate.cs-CZ.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Leaf.PropertiesToTranslate.en-GB.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Leaf.PropertiesToTranslate.en-US.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\LeafPlant.PropertiesToTranslate.cs-CZ.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\LeafPlant.PropertiesToTranslate.en-GB.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\LeafPlant.PropertiesToTranslate.en-US.txt" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,14 +1,14 @@
-CenterPoint="Støedový bod"
-OneLengthPixels="Jednotková délka v pixelech"
-FylotaxisAngle="Fylotaktický úhel"
-LeafTemplate="Vzor listu"
-AlreadyGrownState="Fáze rùstu"
-CenterPointParentAbsoluteLocation="Absolutní umístìní støedového bodu v rodièi"
-CurrentTimeAfterLastGrowth="Èas od posledního pøírùstku"
-DeathTimeSpanFromAveragePart=""
-IsDead="Mrtev"
-LifeTimer="Èasovaè života"
-TimeToAverageDieAfter=""
-TimeToGrowOneStepAfter=""
-ZeroStateOneLengthPixels=""
-OnePartGrowOneLengthPixels=""
+CenterPoint Støedový bod
+OneLengthPixels Jednotková délka v pixelech
+FylotaxisAngle Fylotaktický úhel
+LeafTemplate Vzor listu
+AlreadyGrownState Fáze rùstu
+CenterPointParentAbsoluteLocation Absolutní umístìní støedového bodu v rodièi
+CurrentTimeAfterLastGrowth Èas od posledního pøírùstku
+DeathTimeSpanFromAveragePart 
+IsDead Mrtev
+LifeTimer Èasovaè života
+TimeToAverageDieAfter 
+TimeToGrowOneStepAfter 
+ZeroStateOneLengthPixels 
+OnePartGrowOneLengthPixels 

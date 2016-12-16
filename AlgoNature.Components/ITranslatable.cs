@@ -9,5 +9,6 @@ namespace AlgoNature.Components
     public interface ITranslatable
     {
         string TryTranslate(string translateKey);
+        string TranslatedItselfName { get; }
     }
 }

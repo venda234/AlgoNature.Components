@@ -61,70 +61,146 @@ namespace AlgoNature.Components {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CenterPoint=&quot;Středový bod&quot;
-        ///OneLengthPixels=&quot;Jednotková délka v pixelech&quot;
-        ///FylotaxisAngle=&quot;Fylotaktický úhel&quot;
-        ///LeafTemplate=&quot;Vzor listu&quot;
-        ///AlreadyGrownState=&quot;Fáze růstu&quot;
-        ///CenterPointParentAbsoluteLocation=&quot;Absolutní umístění středového bodu v rodiči&quot;
-        ///CurrentTimeAfterLastGrowth=&quot;Čas od posledního přírůstku&quot;
-        ///DeathTimeSpanFromAveragePart=&quot;&quot;
-        ///IsDead=&quot;Mrtev&quot;
-        ///LifeTimer=&quot;Časovač života&quot;
-        ///TimeToAverageDieAfter=&quot;&quot;
-        ///TimeToGrowOneStepAfter=&quot;&quot;
-        ///ZeroStateOneLengthPixels=&quot;&quot;
-        ///OnePartGrowOneLengthPixels=&quot;&quot;
-        ///.
+        ///   Looks up a localized string similar to Phase of growth.
         /// </summary>
-        internal static string LeafPlant_PropertiesToTranslate_cs_CZ {
+        internal static string AlreadyGrownState {
             get {
-                return ResourceManager.GetString("LeafPlant_PropertiesToTranslate_cs_CZ", resourceCulture);
+                return ResourceManager.GetString("AlreadyGrownState", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CenterPoint=&quot;&quot;
-        ///OneLengthPixels=&quot;&quot;
-        ///FylotaxisAngle=&quot;&quot;
-        ///LeafTemplate=&quot;&quot;
-        ///AlreadyGrownState=&quot;&quot;
-        ///CenterPointParentAbsoluteLocation=&quot;&quot;
-        ///CurrentTimeAfterLastGrowth=&quot;&quot;
-        ///DeathTimeSpanFromAveragePart=&quot;&quot;
-        ///IsDead=&quot;&quot;
-        ///LifeTimer=&quot;&quot;
-        ///TimeToAverageDieAfter=&quot;&quot;
-        ///TimeToGrowOneStepAfter=&quot;&quot;
-        ///ZeroStateOneLengthPixels=&quot;&quot;
-        ///OnePartGrowOneLengthPixels=&quot;&quot;
-        ///.
+        ///   Looks up a localized string similar to Central point.
         /// </summary>
-        internal static string LeafPlant_PropertiesToTranslate_en_GB {
+        internal static string CenterPoint {
             get {
-                return ResourceManager.GetString("LeafPlant_PropertiesToTranslate_en_GB", resourceCulture);
+                return ResourceManager.GetString("CenterPoint", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CenterPoint=&quot;&quot;
-        ///OneLengthPixels=&quot;&quot;
-        ///FylotaxisAngle=&quot;&quot;
-        ///LeafTemplate=&quot;&quot;
-        ///AlreadyGrownState=&quot;&quot;
-        ///CenterPointParentAbsoluteLocation=&quot;&quot;
-        ///CurrentTimeAfterLastGrowth=&quot;&quot;
-        ///DeathTimeSpanFromAveragePart=&quot;&quot;
-        ///IsDead=&quot;&quot;
-        ///LifeTimer=&quot;&quot;
-        ///TimeToAverageDieAfter=&quot;&quot;
-        ///TimeToGrowOneStepAfter=&quot;&quot;
-        ///ZeroStateOneLengthPixels=&quot;&quot;
-        ///OnePartGrowOneLengthPixels=&quot;&quot;.
+        ///   Looks up a localized string similar to Absolute placement of central point in parent.
         /// </summary>
-        internal static string LeafPlant_PropertiesToTranslate_en_US {
+        internal static string CenterPointParentAbsoluteLocation {
             get {
-                return ResourceManager.GetString("LeafPlant_PropertiesToTranslate_en_US", resourceCulture);
+                return ResourceManager.GetString("CenterPointParentAbsoluteLocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time from last growth.
+        /// </summary>
+        internal static string CurrentTimeAfterLastGrowth {
+            get {
+                return ResourceManager.GetString("CurrentTimeAfterLastGrowth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Partial average deviation from the length of life.
+        /// </summary>
+        internal static string DeathTimeSpanFromAveragePart {
+            get {
+                return ResourceManager.GetString("DeathTimeSpanFromAveragePart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fylotaxis angle.
+        /// </summary>
+        internal static string FylotaxisAngle {
+            get {
+                return ResourceManager.GetString("FylotaxisAngle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dead.
+        /// </summary>
+        internal static string IsDead {
+            get {
+                return ResourceManager.GetString("IsDead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Leaf template.
+        /// </summary>
+        internal static string LeafTemplate {
+            get {
+                return ResourceManager.GetString("LeafTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Life timer.
+        /// </summary>
+        internal static string LifeTimer {
+            get {
+                return ResourceManager.GetString("LifeTimer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Location.
+        /// </summary>
+        internal static string Location {
+            get {
+                return ResourceManager.GetString("Location", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Leafy plant seen from above.
+        /// </summary>
+        internal static string NameTranslated {
+            get {
+                return ResourceManager.GetString("NameTranslated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unit length in pixels.
+        /// </summary>
+        internal static string OneLengthPixels {
+            get {
+                return ResourceManager.GetString("OneLengthPixels", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unit length increment after one step growth in pixels.
+        /// </summary>
+        internal static string OnePartGrowOneLengthPixels {
+            get {
+                return ResourceManager.GetString("OnePartGrowOneLengthPixels", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Average length of life.
+        /// </summary>
+        internal static string TimeToAverageDieAfter {
+            get {
+                return ResourceManager.GetString("TimeToAverageDieAfter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to One step growth time.
+        /// </summary>
+        internal static string TimeToGrowOneStepAfter {
+            get {
+                return ResourceManager.GetString("TimeToGrowOneStepAfter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unit length of zero phase of the growth in pixels.
+        /// </summary>
+        internal static string ZeroStateOneLengthPixels {
+            get {
+                return ResourceManager.GetString("ZeroStateOneLengthPixels", resourceCulture);
             }
         }
     }

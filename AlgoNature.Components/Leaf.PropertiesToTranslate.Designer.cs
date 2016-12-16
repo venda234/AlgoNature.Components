@@ -61,101 +61,506 @@ namespace AlgoNature.Components {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to AbsoluteCenterPointLocation=&quot;&quot;
-        ///CenterPoint=&quot;&quot;
-        ///GrowFrom_CenterPoint=&quot;&quot;
-        ///AccurateLogarithmicSpiral=&quot;&quot;
-        ///OneLengthPixels=&quot;&quot;
-        ///OnePartPossitinon=&quot;&quot;
-        ///BeginingAnglePhase=&quot;&quot;
-        ///Veins=&quot;&quot;
-        ///VeinsFractalisation=&quot;&quot;
-        ///VeinsBorderReachPart=&quot;&quot;
-        ///CentralVeinPixelThickness=&quot;&quot;
-        ///Fill=&quot;&quot;
-        ///BorderColor=&quot;&quot;
-        ///BorderPen=&quot;&quot;
-        ///VitalFillColor=&quot;&quot;
-        ///CurrentFillColor=&quot;&quot;
-        ///CurrentFillBrush=&quot;&quot;
-        ///VitalFillBrush=&quot;&quot;
-        ///VeinsColor=&quot;&quot;
-        ///LeftCurveTension=&quot;&quot;
-        ///RightCurveTension=&quot;&quot;
-        ///CurveBehindCenterPoint=&quot;&quot;
-        ///SmoothTop=&quot;&quot;
-        ///InvertedCurving=&quot;&quot;
-        ///ContinueAfterInve [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Absolute placement of central point.
         /// </summary>
-        internal static string Leaf_PropertiesToTranslate_cs_CZ {
+        internal static string AbsoluteCenterPointLocation {
             get {
-                return ResourceManager.GetString("Leaf_PropertiesToTranslate_cs_CZ", resourceCulture);
+                return ResourceManager.GetString("AbsoluteCenterPointLocation", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to AbsoluteCenterPointLocation=&quot;&quot;
-        ///CenterPoint=&quot;&quot;
-        ///GrowFrom_CenterPoint=&quot;&quot;
-        ///AccurateLogarithmicSpiral=&quot;&quot;
-        ///OneLengthPixels=&quot;&quot;
-        ///OnePartPossitinon=&quot;&quot;
-        ///BeginingAnglePhase=&quot;&quot;
-        ///Veins=&quot;&quot;
-        ///VeinsFractalisation=&quot;&quot;
-        ///VeinsBorderReachPart=&quot;&quot;
-        ///CentralVeinPixelThickness=&quot;&quot;
-        ///Fill=&quot;&quot;
-        ///BorderColor=&quot;&quot;
-        ///BorderPen=&quot;&quot;
-        ///VitalFillColor=&quot;&quot;
-        ///CurrentFillColor=&quot;&quot;
-        ///CurrentFillBrush=&quot;&quot;
-        ///VitalFillBrush=&quot;&quot;
-        ///VeinsColor=&quot;&quot;
-        ///LeftCurveTension=&quot;&quot;
-        ///RightCurveTension=&quot;&quot;
-        ///CurveBehindCenterPoint=&quot;&quot;
-        ///SmoothTop=&quot;&quot;
-        ///InvertedCurving=&quot;&quot;
-        ///ContinueAfterInve [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Accurate logarithmic spiral.
         /// </summary>
-        internal static string Leaf_PropertiesToTranslate_en_GB {
+        internal static string AccurateLogarithmicSpiral {
             get {
-                return ResourceManager.GetString("Leaf_PropertiesToTranslate_en_GB", resourceCulture);
+                return ResourceManager.GetString("AccurateLogarithmicSpiral", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to AbsoluteCenterPointLocation=&quot;&quot;
-        ///CenterPoint=&quot;&quot;
-        ///GrowFrom_CenterPoint=&quot;&quot;
-        ///AccurateLogarithmicSpiral=&quot;&quot;
-        ///OneLengthPixels=&quot;&quot;
-        ///OnePartPossitinon=&quot;&quot;
-        ///BeginingAnglePhase=&quot;&quot;
-        ///Veins=&quot;&quot;
-        ///VeinsFractalisation=&quot;&quot;
-        ///VeinsBorderReachPart=&quot;&quot;
-        ///CentralVeinPixelThickness=&quot;&quot;
-        ///Fill=&quot;&quot;
-        ///BorderColor=&quot;&quot;
-        ///BorderPen=&quot;&quot;
-        ///VitalFillColor=&quot;&quot;
-        ///CurrentFillColor=&quot;&quot;
-        ///CurrentFillBrush=&quot;&quot;
-        ///VitalFillBrush=&quot;&quot;
-        ///VeinsColor=&quot;&quot;
-        ///LeftCurveTension=&quot;&quot;
-        ///RightCurveTension=&quot;&quot;
-        ///CurveBehindCenterPoint=&quot;&quot;
-        ///SmoothTop=&quot;&quot;
-        ///InvertedCurving=&quot;&quot;
-        ///ContinueAfterInve [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Phase of growth.
         /// </summary>
-        internal static string Leaf_PropertiesToTranslate_en_US {
+        internal static string AlreadyGrownState {
             get {
-                return ResourceManager.GetString("Leaf_PropertiesToTranslate_en_US", resourceCulture);
+                return ResourceManager.GetString("AlreadyGrownState", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Angle phase of spiral&apos;s begining (sector).
+        /// </summary>
+        internal static string BeginingAnglePhase {
+            get {
+                return ResourceManager.GetString("BeginingAnglePhase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edge colour.
+        /// </summary>
+        internal static string BorderColor {
+            get {
+                return ResourceManager.GetString("BorderColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edge pen.
+        /// </summary>
+        internal static string BorderPen {
+            get {
+                return ResourceManager.GetString("BorderPen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Branch growth type.
+        /// </summary>
+        internal static string BranchGrowthType {
+            get {
+                return ResourceManager.GetString("BranchGrowthType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Branch length.
+        /// </summary>
+        internal static string BranchLength {
+            get {
+                return ResourceManager.GetString("BranchLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Branch pen.
+        /// </summary>
+        internal static string BranchPen {
+            get {
+                return ResourceManager.GetString("BranchPen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Central point.
+        /// </summary>
+        internal static string CenterPoint {
+            get {
+                return ResourceManager.GetString("CenterPoint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Absolute placement of central point in parent.
+        /// </summary>
+        internal static string CenterPointParentAbsoluteLocation {
+            get {
+                return ResourceManager.GetString("CenterPointParentAbsoluteLocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Central vein thickness in pixels.
+        /// </summary>
+        internal static string CentralVeinPixelThickness {
+            get {
+                return ResourceManager.GetString("CentralVeinPixelThickness", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Continue straight after inverted curving.
+        /// </summary>
+        internal static string ContinueAfterInvertedCurving {
+            get {
+                return ResourceManager.GetString("ContinueAfterInvertedCurving", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current fill brush.
+        /// </summary>
+        internal static string CurrentFillBrush {
+            get {
+                return ResourceManager.GetString("CurrentFillBrush", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current fill colour.
+        /// </summary>
+        internal static string CurrentFillColor {
+            get {
+                return ResourceManager.GetString("CurrentFillColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current time after last growth.
+        /// </summary>
+        internal static string CurrentTimeAfterLastGrowth {
+            get {
+                return ResourceManager.GetString("CurrentTimeAfterLastGrowth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Curve behind centre point.
+        /// </summary>
+        internal static string CurveBehindCenterPoint {
+            get {
+                return ResourceManager.GetString("CurveBehindCenterPoint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Partial average deviation from the length of life.
+        /// </summary>
+        internal static string DeathTimeSpanFromAveragePart {
+            get {
+                return ResourceManager.GetString("DeathTimeSpanFromAveragePart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Angles division (n parameter).
+        /// </summary>
+        internal static string DivideAngle {
+            get {
+                return ResourceManager.GetString("DivideAngle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fil.
+        /// </summary>
+        internal static string Fill {
+            get {
+                return ResourceManager.GetString("Fill", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grow from leaf&apos;s central point.
+        /// </summary>
+        internal static string GrowFrom_CenterPoint {
+            get {
+                return ResourceManager.GetString("GrowFrom_CenterPoint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Has branch.
+        /// </summary>
+        internal static string HasBranch {
+            get {
+                return ResourceManager.GetString("HasBranch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ideal area (in square pixels).
+        /// </summary>
+        internal static string IdealArea {
+            get {
+                return ResourceManager.GetString("IdealArea", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ideal left tangent angle.
+        /// </summary>
+        internal static string IdealTangentAngleLeft {
+            get {
+                return ResourceManager.GetString("IdealTangentAngleLeft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ideal right tangent angle.
+        /// </summary>
+        internal static string IdealTangentAngleRight {
+            get {
+                return ResourceManager.GetString("IdealTangentAngleRight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inverted begining.
+        /// </summary>
+        internal static string InvertedBegining {
+            get {
+                return ResourceManager.GetString("InvertedBegining", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inverted curving.
+        /// </summary>
+        internal static string InvertedCurving {
+            get {
+                return ResourceManager.GetString("InvertedCurving", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Angle of inverted curving centre.
+        /// </summary>
+        internal static string InvertedCurvingCenterAngle {
+            get {
+                return ResourceManager.GetString("InvertedCurvingCenterAngle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inverted curving span angle.
+        /// </summary>
+        internal static string InvertedCurvingSpan {
+            get {
+                return ResourceManager.GetString("InvertedCurvingSpan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inverted leaf.
+        /// </summary>
+        internal static string InvertedLeaf {
+            get {
+                return ResourceManager.GetString("InvertedLeaf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bilaterally symetric.
+        /// </summary>
+        internal static string IsBilaterallySymetric {
+            get {
+                return ResourceManager.GetString("IsBilaterallySymetric", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dead.
+        /// </summary>
+        internal static string IsDead {
+            get {
+                return ResourceManager.GetString("IsDead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Leaf&apos;s growth type.
+        /// </summary>
+        internal static string LeafGrowthType {
+            get {
+                return ResourceManager.GetString("LeafGrowthType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Left curve tension.
+        /// </summary>
+        internal static string LeftCurveTension {
+            get {
+                return ResourceManager.GetString("LeftCurveTension", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Angles division (n parameter) of left side.
+        /// </summary>
+        internal static string LeftDivideAngle {
+            get {
+                return ResourceManager.GetString("LeftDivideAngle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Life timer.
+        /// </summary>
+        internal static string LifeTimer {
+            get {
+                return ResourceManager.GetString("LifeTimer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Location.
+        /// </summary>
+        internal static string Location {
+            get {
+                return ResourceManager.GetString("Location", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Leaf.
+        /// </summary>
+        internal static string NameTranslated {
+            get {
+                return ResourceManager.GetString("NameTranslated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unit length in pixels.
+        /// </summary>
+        internal static string OneLengthPixels {
+            get {
+                return ResourceManager.GetString("OneLengthPixels", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unit length increment after one step growth in pixels.
+        /// </summary>
+        internal static string OnePartGrowOneLengthPixels {
+            get {
+                return ResourceManager.GetString("OnePartGrowOneLengthPixels", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Angle phase of unit length of spiral&apos;s radius.
+        /// </summary>
+        internal static string OnePartPossitinon {
+            get {
+                return ResourceManager.GetString("OnePartPossitinon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Properties editing mode (cancels redrawing).
+        /// </summary>
+        internal static string PropertiesEditingMode {
+            get {
+                return ResourceManager.GetString("PropertiesEditingMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Right curve tension.
+        /// </summary>
+        internal static string RightCurveTension {
+            get {
+                return ResourceManager.GetString("RightCurveTension", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Angles division (n parameter) of right side.
+        /// </summary>
+        internal static string RightDivideAngle {
+            get {
+                return ResourceManager.GetString("RightDivideAngle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Leaf&apos;s rotation angle towards vertical vector (0;1) in radians.
+        /// </summary>
+        internal static string RotationAngleRad {
+            get {
+                return ResourceManager.GetString("RotationAngleRad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Smooth top.
+        /// </summary>
+        internal static string SmoothTop {
+            get {
+                return ResourceManager.GetString("SmoothTop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Average length of life.
+        /// </summary>
+        internal static string TimeToAverageDieAfter {
+            get {
+                return ResourceManager.GetString("TimeToAverageDieAfter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to One step growth time.
+        /// </summary>
+        internal static string TimeToGrowOneStepAfter {
+            get {
+                return ResourceManager.GetString("TimeToGrowOneStepAfter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Veins.
+        /// </summary>
+        internal static string Veins {
+            get {
+                return ResourceManager.GetString("Veins", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Veins&apos; border reach part.
+        /// </summary>
+        internal static string VeinsBorderReachPart {
+            get {
+                return ResourceManager.GetString("VeinsBorderReachPart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Veins&apos; colour.
+        /// </summary>
+        internal static string VeinsColor {
+            get {
+                return ResourceManager.GetString("VeinsColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Veins&apos; fractalisation.
+        /// </summary>
+        internal static string VeinsFractalisation {
+            get {
+                return ResourceManager.GetString("VeinsFractalisation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vital fill brush.
+        /// </summary>
+        internal static string VitalFillBrush {
+            get {
+                return ResourceManager.GetString("VitalFillBrush", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vital fill colour.
+        /// </summary>
+        internal static string VitalFillColor {
+            get {
+                return ResourceManager.GetString("VitalFillColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unit length of branch&apos;s zero phase of the growth in pixels.
+        /// </summary>
+        internal static string ZeroStateBranchOneLengthPixels {
+            get {
+                return ResourceManager.GetString("ZeroStateBranchOneLengthPixels", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unit length of zero phase of the growth in pixels.
+        /// </summary>
+        internal static string ZeroStateOneLengthPixels {
+            get {
+                return ResourceManager.GetString("ZeroStateOneLengthPixels", resourceCulture);
             }
         }
     }

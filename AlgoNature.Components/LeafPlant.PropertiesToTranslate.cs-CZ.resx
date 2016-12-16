@@ -120,6 +120,9 @@
   <data name="AlreadyGrownState" xml:space="preserve">
     <value>Fáze růstu</value>
   </data>
+  <data name="BackgroundColor" xml:space="preserve">
+    <value>Barva pozadí</value>
+  </data>
   <data name="CenterPoint" xml:space="preserve">
     <value>Středový bod</value>
   </data>

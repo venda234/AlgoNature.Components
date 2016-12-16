@@ -88,6 +88,15 @@ namespace AlgoNature.Components {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Background color.
+        /// </summary>
+        internal static string BackgroundColor {
+            get {
+                return ResourceManager.GetString("BackgroundColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Angle phase of spiral&apos;s begining (sector).
         /// </summary>
         internal static string BeginingAnglePhase {

@@ -35,6 +35,7 @@
             // panelNature
             // 
             this.panelNature.Location = new System.Drawing.Point(0, 0);
+            this.panelNature.BackColor = System.Drawing.Color.Transparent;
             this.panelNature.Name = "panelNature";
             this.panelNature.Size = new System.Drawing.Size(491, 455);
             this.panelNature.TabIndex = 0;
@@ -45,6 +46,7 @@
             // 
             // LeafPlant
             // 
+            this.BackColor = System.Drawing.Color.Transparent;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelNature);

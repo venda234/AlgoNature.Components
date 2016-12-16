@@ -325,6 +325,19 @@ namespace AlgoNature.Components
         }
 
 #region IGrowableGraphicChild implementation
+        public Color BackgroundColor
+        {
+            get
+            {
+                return this.BackColor;
+            }
+            set
+            {
+                this.BackColor = value;
+                
+            }
+        }
+
         private int _alreadyGrownState;
         public int AlreadyGrownState
         {

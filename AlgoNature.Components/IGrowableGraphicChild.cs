@@ -31,6 +31,7 @@ namespace AlgoNature.Components
         void LifeTimerTickHandler(object sender, EventArgs e);
         Point CenterPointParentAbsoluteLocation { get; set; }
         Point Location { get; set; }
+        Color BackgroundColor { get; set; }
 
         // Graphic
         //Panel PanelNature { get; set; }

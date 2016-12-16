@@ -126,6 +126,9 @@
   <data name="AlreadyGrownState" xml:space="preserve">
     <value>Phase of growth</value>
   </data>
+  <data name="BackgroundColor" xml:space="preserve">
+    <value>Background colour</value>
+  </data>
   <data name="BeginingAnglePhase" xml:space="preserve">
     <value>Angle phase of spiral's begining (sector)</value>
   </data>

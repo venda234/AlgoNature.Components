@@ -3033,7 +3033,20 @@ namespace AlgoNature.Components
         }
 
 
-        #region IGrowable Implementation
+        #region IGrowableGraphicChild Implementation
+        public Color BackgroundColor
+        {
+            get
+            {
+                return this.BackColor;
+            }
+            set
+            {
+                this.BackColor = value;
+                doRefresh();
+            }
+        }
+
         private float _zeroStateOneLengthPixels;
         public float ZeroStateOneLengthPixels
         {

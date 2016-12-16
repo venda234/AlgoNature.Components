@@ -126,6 +126,9 @@
   <data name="AlreadyGrownState" xml:space="preserve">
     <value>Fáze růstu</value>
   </data>
+  <data name="BackgroundColor" xml:space="preserve">
+    <value>Barva pozadí</value>
+  </data>
   <data name="BeginingAnglePhase" xml:space="preserve">
     <value>Úhlová fáze pořátku spirály (vykrojení)</value>
   </data>

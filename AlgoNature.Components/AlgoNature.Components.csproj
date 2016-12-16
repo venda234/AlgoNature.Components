@@ -57,6 +57,7 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="IPropertiesEditingSuspendable.cs" />
+    <Compile Include="IResettableGraphicComponentWithoutLosingSettings.cs" />
     <Compile Include="IToRedrawEventHandlingList.cs" />
     <Compile Include="ITranslatable.cs" />
     <Compile Include="Leaf.cs">

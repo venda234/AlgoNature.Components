@@ -23,7 +23,8 @@ using static AlgoNature.Components.Geometry;
 
 namespace AlgoNature.Components
 {
-    public partial class LeafPlant: DockableUserControl<LeafPlant>, IResettableGraphicComponentForVisualisationDocking<LeafPlant>, IGrowableGraphicChild, ITranslatable
+    public partial class LeafPlant: DockableUserControl<LeafPlant>, IResettableGraphicComponentForVisualisationDocking<LeafPlant>, IGrowableGraphicChild, ITranslatable, 
+        IResettableGraphicComponentWithoutLosingSettings<LeafPlant>
     {
         // ITranslatable
         // ITranslatable
@@ -55,14 +56,13 @@ namespace AlgoNature.Components
         {
             foreach (Control c in panelNature.Controls) c.Dispose();
             panelNature.Controls.Clear();
-            try { Itself.Dispose(); } catch { }
 
             panelNature.Size = this.Size;
 
             _centerPoint = new Point(this.Width / 2, this.Height / 2);
 
             _fylotaxisAngle = Convert.ToSingle(GoldenAngleRad);
-            _currentFylotaxisAngle = -_fylotaxisAngle;
+            _currentFylotaxisAngle = -_fylotaxisAngle; // because it adds it before adding a leaf in the next step
 
             _alreadyGrownState = 0;
             _currentTimeAfterLastGrowth = new TimeSpan(0);
@@ -71,6 +71,21 @@ namespace AlgoNature.Components
             LifeTimer.Interval = 500;
             LifeTimer.Tick += new EventHandler(LifeTimerTickHandler);
             //LifeTimer.Start();
+
+            return this;
+        }
+
+        public LeafPlant ResetGraphicalAppearanceWithoutLosingSettings()
+        {
+            foreach (Control c in panelNature.Controls) c.Dispose();
+            panelNature.Controls.Clear();
+
+            _currentFylotaxisAngle = -_fylotaxisAngle; // because it adds it before adding a leaf in the next step
+
+            _alreadyGrownState = 0;
+            _currentTimeAfterLastGrowth = new TimeSpan(0);
+
+            //panelNature_Paint(this, new PaintEventArgs(panelNature.CreateGraphics(), panelNature.DisplayRectangle));
 
             return this;
         }
@@ -261,7 +276,7 @@ namespace AlgoNature.Components
 
         
 
-        private async void panelPlant_Paint(object sender, PaintEventArgs e)
+        private async void panelNature_Paint(object sender, PaintEventArgs e)
         {
             //Itself = new Bitmap(panelNature.Width, panelNature.Height);
 

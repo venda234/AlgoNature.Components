@@ -204,7 +204,7 @@ namespace AlgoNature.Components
             _curveBehindCenterPoint = true;
             _smoothTop = false;
             _rotationAngleRad = 0F;
-            _oneLengthPixels = 6;
+            _oneLengthPixels = 4.5F;
             _onePartPossitionDegrees = 1;
             _beginingAnglePhase = 0;
             _leftCurveTension = _rightCurveTension = 0.5F;
@@ -3065,7 +3065,7 @@ namespace AlgoNature.Components
             set
             {
                 _zeroStateOneLengthPixels = value;
-                _oneLengthPixels = _zeroStateOneLengthPixels + (_alreadyGrownState * _onePartGrowOneLengthPixels);
+                _oneLengthPixels = getOneLengthPixelsBasedOnGrowthType();
                 doRefresh();
             }
         }
@@ -3081,7 +3081,7 @@ namespace AlgoNature.Components
             set
             {
                 _onePartGrowOneLengthPixels = value;
-                _oneLengthPixels = _zeroStateOneLengthPixels + (_alreadyGrownState * _onePartGrowOneLengthPixels);
+                _oneLengthPixels = getOneLengthPixelsBasedOnGrowthType();
                 doRefresh();
             }
         }
@@ -3097,9 +3097,15 @@ namespace AlgoNature.Components
             set
             {
                 _alreadyGrownState = value;
-                _oneLengthPixels = _zeroStateOneLengthPixels + (_alreadyGrownState * _onePartGrowOneLengthPixels);
+                _oneLengthPixels = getOneLengthPixelsBasedOnGrowthType();
                 doRefresh();
             }
+        }
+
+        private float getOneLengthPixelsBasedOnGrowthType()
+        {
+            if (_leafGrowthType == GrowthType.Arithmetic) return _zeroStateOneLengthPixels + (_alreadyGrownState * _onePartGrowOneLengthPixels);
+            else return (float)(_zeroStateOneLengthPixels + Math.Pow(_onePartGrowOneLengthPixels, _alreadyGrownState));
         }
 
         //private TimeSpan _growOneStepTime;
@@ -3172,14 +3178,28 @@ namespace AlgoNature.Components
         public GrowthType BranchGrowthType
         {
             get { return _branchGrowthType; }
-            set { _branchGrowthType = value; }
+            set
+            {
+                _branchGrowthType = value;
+                float oneBranchGrow = _onePartGrowOneLengthPixels * _zeroStateOneLengthPixels / _zeroStateBranchOneLengthPixels;
+                if (_branchGrowthType == GrowthType.Arithmetic) _branchLength = _zeroStateBranchOneLengthPixels + _alreadyGrownState * oneBranchGrow;
+                else _branchLength = _zeroStateBranchOneLengthPixels * (float)Math.Pow(oneBranchGrow, _alreadyGrownState);
+                doRefresh();
+            }
         }
 
         private GrowthType _leafGrowthType;
         public GrowthType LeafGrowthType
         {
-            get { return _leafGrowthType; }
-            set { _leafGrowthType = value; }
+            get
+            {
+                return _leafGrowthType;
+            }
+            set
+            {
+                _leafGrowthType = value;
+                OneLengthPixels = getOneLengthPixelsBasedOnGrowthType();
+            }
         }
 
         private float _zeroStateBranchOneLengthPixels;
@@ -3194,8 +3214,8 @@ namespace AlgoNature.Components
             if (!_isDead)
             {
                 _alreadyGrownState++;
-                if (_leafGrowthType == GrowthType.Arithmetic) _oneLengthPixels = _zeroStateOneLengthPixels + (_alreadyGrownState * _onePartGrowOneLengthPixels);
-                else _oneLengthPixels = _zeroStateOneLengthPixels * (float)Math.Pow(_onePartGrowOneLengthPixels, _alreadyGrownState);
+                _oneLengthPixels = getOneLengthPixelsBasedOnGrowthType();
+                
                 float oneBranchGrow = _onePartGrowOneLengthPixels * _zeroStateOneLengthPixels / _zeroStateBranchOneLengthPixels;
                 if (_branchGrowthType == GrowthType.Arithmetic) _branchLength = _zeroStateBranchOneLengthPixels + _alreadyGrownState * oneBranchGrow;
                 else _branchLength = _zeroStateBranchOneLengthPixels * (float)Math.Pow(oneBranchGrow, _alreadyGrownState);

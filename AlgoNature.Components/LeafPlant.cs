@@ -393,7 +393,7 @@ namespace AlgoNature.Components
             {
                 if (value < TimeToGrowOneStepAfter)
                 {
-                    _currentTimeAfterLastGrowth += value;
+                    _currentTimeAfterLastGrowth = value;
                 }
                 else
                 {

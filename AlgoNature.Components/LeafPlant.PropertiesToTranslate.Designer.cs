@@ -196,7 +196,7 @@ namespace AlgoNature.Components {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to One step growth time.
+        ///   Looks up a localized string similar to One step growth time (adding one more leaf).
         /// </summary>
         internal static string TimeToGrowOneStepAfter {
             get {

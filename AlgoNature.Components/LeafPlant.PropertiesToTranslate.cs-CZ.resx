@@ -173,7 +173,7 @@
     <value>Průměrná délka života</value>
   </data>
   <data name="TimeToGrowOneStepAfter" xml:space="preserve">
-    <value>Čas vzrůstu o 1 krok</value>
+    <value>Čas vzrůstu o 1 krok (přidání dalsího listu)</value>
   </data>
   <data name="ZeroStateOneLengthPixels" xml:space="preserve">
     <value>Jednotková délka nulové fáze vzrůstu v pixelech</value>

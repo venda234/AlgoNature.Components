@@ -163,7 +163,7 @@
     <value>Average length of life</value>
   </data>
   <data name="TimeToGrowOneStepAfter" xml:space="preserve">
-    <value>One step growth time</value>
+    <value>One step growth time (adding one more leaf)</value>
   </data>
   <data name="ZeroStateOneLengthPixels" xml:space="preserve">
     <value>Unit length of zero phase of the growth in pixels</value>

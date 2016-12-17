@@ -159,11 +159,12 @@ namespace AlgoNature.Components
             _alreadyGrownState = 0;
             _currentTimeAfterLastGrowth = new TimeSpan(0);
             _isDead = false;
+            
+            LifeTimer = new System.Windows.Forms.Timer();
+            LifeTimer.Interval = 500;
+            LifeTimer.Tick += new EventHandler(LifeTimerTickHandler);
             if (LifeTimer.Enabled)
             {
-                LifeTimer = new System.Windows.Forms.Timer();
-                LifeTimer.Interval = 500;
-                LifeTimer.Tick += new EventHandler(LifeTimerTickHandler);
                 LifeTimer.Start();
             }
             /*else -------- caused repeated rerendering
@@ -3105,7 +3106,13 @@ namespace AlgoNature.Components
         private float getOneLengthPixelsBasedOnGrowthType()
         {
             if (_leafGrowthType == GrowthType.Arithmetic) return _zeroStateOneLengthPixels + (_alreadyGrownState * _onePartGrowOneLengthPixels);
-            else return (float)(_zeroStateOneLengthPixels + Math.Pow(_onePartGrowOneLengthPixels, _alreadyGrownState));
+            else
+            {
+                if (_onePartGrowOneLengthPixels < 1)
+                    return (float)(_zeroStateOneLengthPixels * (Math.Pow(_onePartGrowOneLengthPixels + 1, _alreadyGrownState) - (_alreadyGrownState <= 1 ? 0 : 1 - _onePartGrowOneLengthPixels)));
+                else return (float)(_zeroStateOneLengthPixels * Math.Pow(_onePartGrowOneLengthPixels, _alreadyGrownState));
+            }
+                
         }
 
         //private TimeSpan _growOneStepTime;
@@ -3219,7 +3226,7 @@ namespace AlgoNature.Components
                 float oneBranchGrow = _onePartGrowOneLengthPixels * _zeroStateOneLengthPixels / _zeroStateBranchOneLengthPixels;
                 if (_branchGrowthType == GrowthType.Arithmetic) _branchLength = _zeroStateBranchOneLengthPixels + _alreadyGrownState * oneBranchGrow;
                 else _branchLength = _zeroStateBranchOneLengthPixels * (float)Math.Pow(oneBranchGrow, _alreadyGrownState);
-                doItselfRefresh();
+                //doItselfRefresh();
                 doRefresh();
             }            
         }

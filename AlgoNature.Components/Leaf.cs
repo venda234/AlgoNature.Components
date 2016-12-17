@@ -1205,10 +1205,9 @@ namespace AlgoNature.Components
                 _growFrom_CenterPoint = value;
                 doRefresh();
             }
-
         }
 
-        private bool _accurateLogarithmicSpiral;
+        private bool _accurateLogarithmicSpiral = true;
         public bool AccurateLogarithmicSpiral
         {
             get { return _accurateLogarithmicSpiral; }

@@ -66,6 +66,11 @@
     <Compile Include="Leaf.Designer.cs">
       <DependentUpon>Leaf.cs</DependentUpon>
     </Compile>
+    <Compile Include="Leaf.PropertiesToTranslate.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Leaf.PropertiesToTranslate.resx</DependentUpon>
+    </Compile>
     <Compile Include="Leaf.PropertiesToTranslate.en-US.Designer.cs">
       <DependentUpon>Leaf.PropertiesToTranslate.en-US.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -81,16 +86,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Leaf.PropertiesToTranslate.cs-CZ.resx</DependentUpon>
     </Compile>
-    <Compile Include="Leaf.PropertiesToTranslate.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Leaf.PropertiesToTranslate.resx</DependentUpon>
-    </Compile>
     <Compile Include="LeafPlant.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="LeafPlant.Designer.cs">
       <DependentUpon>LeafPlant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LeafPlant.PropertiesToTranslate.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LeafPlant.PropertiesToTranslate.resx</DependentUpon>
     </Compile>
     <Compile Include="LeafPlant.PropertiesToTranslate.en-US.Designer.cs">
       <DependentUpon>LeafPlant.PropertiesToTranslate.en-US.resx</DependentUpon>
@@ -106,11 +111,6 @@
       <DependentUpon>LeafPlant.PropertiesToTranslate.cs-CZ.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="LeafPlant.PropertiesToTranslate.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LeafPlant.PropertiesToTranslate.resx</DependentUpon>
     </Compile>
     <Compile Include="Maths.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

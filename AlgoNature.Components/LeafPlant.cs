@@ -48,8 +48,11 @@ namespace AlgoNature.Components
         {
             return LeafPlant_PropertiesToTranslate.ResourceManager.TryTranslate(translateKey);
         }
-        
-        
+        public string TryTranslate(string translateKey, CultureInfo culture)
+        {
+            return LeafPlant_PropertiesToTranslate.ResourceManager.TryTranslate(translateKey, culture);
+        }
+
 
         // IResettableGraphicComponentForVisualisationDocking Implementation
         public LeafPlant ResetGraphicalAppearanceForImmediateDocking()

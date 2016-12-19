@@ -15,6 +15,7 @@ using System.IO;
 using System.Threading;
 using static AlgoNature.Components.Generals;
 using static AlgoNature.Components.Geometry;
+using System.Globalization;
 //using System.Timers;
 
 namespace AlgoNature.Components
@@ -58,6 +59,8 @@ namespace AlgoNature.Components
         //private bool _translatableForThisCulture = true;
         public string TryTranslate(string translateKey)
             => Leaf_PropertiesToTranslate.ResourceManager.TryTranslate(translateKey);
+        public string TryTranslate(string translateKey, CultureInfo culture)
+            => Leaf_PropertiesToTranslate.ResourceManager.TryTranslate(translateKey, culture);
         //{
         //    if (_translatable)
         //    {
@@ -75,7 +78,7 @@ namespace AlgoNature.Components
         //                _translatable = tryInitializeTranslationDictionary(culture);
         //            }*/
         //        }
-                
+
         //        /*else if (_translationDictionaries[culture] == null)
         //        {
         //            if (!tryInitializeTranslationDictionary(culture))

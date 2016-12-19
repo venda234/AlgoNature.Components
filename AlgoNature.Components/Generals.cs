@@ -7,6 +7,7 @@ using System.Numerics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Threading;
+using System.Globalization;
 
 namespace AlgoNature.Components
 {
@@ -157,6 +158,25 @@ namespace AlgoNature.Components
         public static string TryTranslate(this System.Resources.ResourceManager RM, /*Dictionary<string, string> writingDictionary, string resourceFileNameWithoutExtension,*/ string key)
         {
             string value = RM.GetString(key, Thread.CurrentThread.CurrentCulture);
+
+            if (value != null && value != "")
+            {
+                return value;
+            }
+            else
+            {
+                return key;
+            }
+        }
+        /// <summary>
+        /// Tries to translate given key - if fails, returns the given key.
+        /// </summary>
+        /// <param name="RM">Resource manager</param>
+        /// <param name="key">Translation key</param>
+        /// <returns></returns>
+        public static string TryTranslate(this System.Resources.ResourceManager RM,  string key, CultureInfo culture)
+        {
+            string value = RM.GetString(key, culture);
 
             if (value != null && value != "")
             {

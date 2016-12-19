@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Reflection;
 using System.IO;
+using System.Globalization;
 
 namespace AlgoNature.Components
 {
@@ -27,6 +28,10 @@ namespace AlgoNature.Components
         }
         private bool _translatable = true;
         private bool _translatableForThisCulture = true;
+        public virtual string TryTranslate(string translateKey, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
         public virtual string TryTranslate(string translateKey)
         {
             if (_translatable)
